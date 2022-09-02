@@ -18,18 +18,10 @@ function LoginForm() {
     const dispatch = useDispatch()
     const [login, { isLoading }] = useLoginMutation();
 
-    const { formState, setFormState }:any = useState({
-        email: "admin@silverchip.com",
-        password: "password",
-    })
-
-    // function email(e:any) {
-    //     setFormState(...formState, formState.email = e.target.vlaue)
-    // }
-
-    // function pwd(e:any) {
-    //     setFormState(...formState, formState.password = e.target.vlaue)
-    // }
+    // const { formState, setFormState }:any = useState({
+    //     email: "admin@silverchip.com",
+    //     password: "password",
+    // })
 
     async function handleSubmit(e:any) {
         e.preventDefault()
@@ -40,7 +32,7 @@ function LoginForm() {
             
             console.log("userData", userData)
         } catch {
-
+            console.log("could not validate user")
         }
     }
 

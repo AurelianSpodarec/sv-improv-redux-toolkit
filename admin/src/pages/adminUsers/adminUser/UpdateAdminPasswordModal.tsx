@@ -7,19 +7,19 @@ import { AdminUser } from 'src/types/shared/AdminUser';
 import useUpdateAdminPassword from './hooks/useUpdateAdminPassword';
 
 const UpdateAdminPasswordModal: React.FC<UpdateAdminPasswordProps> = ({ user: { id } }) => {
-    const {
-        formState: { password, confirmPassword },
-        handleChange,
-        validateConfirmPassword,
-        handleSubmit,
-        // error,
-        // isPosting,
-        closeModal,
-    } = useUpdateAdminPassword(id);
+    // const {
+    //     formState: { password, confirmPassword },
+    //     handleChange,
+    //     validateConfirmPassword,
+    //     handleSubmit,
+    //     // error,
+    //     // isPosting,
+    //     closeModal,
+    // } = useUpdateAdminPassword(id);
 
     return (
         <Modal title="Update password" size="small">
-            <Form onCancel={closeModal} onSubmit={handleSubmit}>
+            {/* <Form onCancel={closeModal} onSubmit={handleSubmit}>
                 <FormRow>
                     <TextInput
                         required
@@ -41,7 +41,7 @@ const UpdateAdminPasswordModal: React.FC<UpdateAdminPasswordProps> = ({ user: { 
                         label="Confirm password"
                     />
                 </FormRow>
-            </Form>
+            </Form> */}
         </Modal>
     );
 };

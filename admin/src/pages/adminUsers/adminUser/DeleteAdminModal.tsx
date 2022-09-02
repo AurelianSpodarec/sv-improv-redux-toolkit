@@ -5,17 +5,18 @@ import useDeleteAdmin from './hooks/useDeleteAdmin';
 
 const DeleteAdminModal: React.FC<DeleteAdminProps> = ({ user }) => {
     const history = useHistory();
-    const { deleteUser, isPosting, error } = useDeleteAdmin(user.id);
+    // const { deleteUser, isPosting, error } = useDeleteAdmin(user.id);
 
     return (
-        <ConfirmModal
-            title="Delete admin"
-            description={`Are you sure you want to delete '${user.firstName} ${user.lastName}'?`}
-            closeModal={() => history.replace(`/admin-users/${user.id}`)}
-            handleSubmit={deleteUser}
-            isPosting={isPosting}
-            error={error}
-        />
+        <></>
+        // <ConfirmModal
+        //     title="Delete admin"
+        //     description={`Are you sure you want to delete '${user.firstName} ${user.lastName}'?`}
+        //     closeModal={() => history.replace(`/admin-users/${user.id}`)}
+        //     // handleSubmit={deleteUser}
+        //     // isPosting={isPosting}
+        //     // error={error}
+        // />
     );
 };
 

@@ -4,12 +4,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import usePrevious from 'lib/src/hooks/usePrevious';
 import useForm from 'lib/src/hooks/useForm';
 
-import { updateAdminUser } from '@actions/adminUsers';
-import {
-    getAdminUserIsPosting,
-    getAdminUserPostSuccess,
-    getAdminUsersPostError,
-} from '@selectors/adminUsers';
+// import { updateAdminUser } from '@actions/adminUsers';
+
 import { useHistory } from 'react-router-dom';
 
 import { AdminUser } from 'src/types/shared/AdminUser';
@@ -19,7 +15,7 @@ export default function useUpdateAdmin({
     email,
     firstName,
     lastName,
-}: AdminUser): UpdateAdminReturn {
+}: AdminUser) {
     const dispatch = useDispatch();
     const history = useHistory();
 
@@ -30,28 +26,11 @@ export default function useUpdateAdmin({
     const [formState, handleChange] = useForm({ email, firstName, lastName });
 
     const handleSubmit = useCallback(() => {
-        dispatch(updateAdminUser(id, formState));
+        // dispatch(updateAdminUser(id, formState));
     }, [dispatch, id, formState]);
 
-    const isPosting = useSelector(getAdminUserIsPosting);
-    const error = useSelector(getAdminUsersPostError);
-    const postSuccess = useSelector(getAdminUserPostSuccess);
-    const prevPostSuccess = usePrevious(postSuccess);
-
-    useEffect(() => {
-        if (!prevPostSuccess && postSuccess) {
-            closeModal();
-        }
-    }, [postSuccess, prevPostSuccess, closeModal]);
-
-    return {
-        handleSubmit,
-        formState,
-        handleChange,
-        closeModal,
-        isPosting,
-        error,
-    };
+ 
+ 
 }
 
 interface FormState {

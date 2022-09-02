@@ -7,18 +7,18 @@ import { AdminUser } from 'src/types/shared/AdminUser';
 import useUpdateAdmin from './hooks/useUpdateAdmin';
 
 const UpdateAdminModal: React.FC<UpdateAdminProps> = ({ user }) => {
-    const {
-        handleSubmit,
-        handleChange,
-        closeModal,
-        isPosting,
-        // error,
-        formState: { email, firstName, lastName },
-    } = useUpdateAdmin(user);
+    // const {
+    //     handleSubmit,
+    //     handleChange,
+    //     closeModal,
+    //     isPosting,
+    //     // error,
+    //     formState: { email, firstName, lastName },
+    // } = useUpdateAdmin(user);
 
     return (
         <Modal title="Update admin" size="small">
-            <Form onCancel={closeModal} onSubmit={handleSubmit} isPosting={isPosting}>
+            {/* <Form onCancel={closeModal} onSubmit={handleSubmit} isPosting={isPosting}>
                 <FormRow>
                     <TextInput
                         type="email"
@@ -47,7 +47,7 @@ const UpdateAdminModal: React.FC<UpdateAdminProps> = ({ user }) => {
                         required
                     />
                 </FormRow>
-            </Form>
+            </Form> */}
         </Modal>
     );
 };

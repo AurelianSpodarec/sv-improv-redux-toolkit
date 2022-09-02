@@ -4,11 +4,8 @@ import { useParams } from 'react-router-dom';
 
 import { useAppSelector } from '../../../redux/store';
 
-import { fetchSingleAdminUser } from '@actions/adminUsers/fetchSingleAdminUser';
-import {
-    getAdminUser,
-    // getAdminUsersError
-} from '@selectors/adminUsers';
+// import { fetchSingleAdminUser } from '@actions/adminUsers/fetchSingleAdminUser';
+ 
 
 import AdminUser from './AdminUser';
 
@@ -21,18 +18,17 @@ const AdminUserContainer: React.FC = () => {
     const { id, action } = useParams<{ id: string; action?: string }>();
 
     useEffect(() => {
-        dispatch(fetchSingleAdminUser(+id));
+        // dispatch(fetchSingleAdminUser(+id));
     }, [id, dispatch]);
 
     // const error = useSelector(getAdminUsersError);
-    const user = useAppSelector(state => getAdminUser(state, parseInt(id)));
-
+    const user =  {};
     return (
         <>
-            <AdminUser user={user} />
+            {/* <AdminUser user={user} />
             {action === 'delete' && <DeleteAdminModal user={user} />}
             {!!user && action === 'edit-password' && <UpdateAdminPasswordModal user={user} />}
-            {!!user && action === 'edit' && <UpdateAdminModal user={user} />}
+            {!!user && action === 'edit' && <UpdateAdminModal user={user} />} */}
         </>
     );
 };
