@@ -5,7 +5,7 @@ import useDarkMode from 'lib/src/hooks/useDarkMode';
 import ToggleSwitch from 'lib/src/components/form/ToggleSwitch';
 
 const Header: React.FC = () => {
-    const [darkMode, setDarkMode] = useDarkMode();
+    // const [darkMode, setDarkMode] = useDarkMode();
 
     return (
         <header className="header">
@@ -15,13 +15,13 @@ const Header: React.FC = () => {
                 </Link>
             </div>
             <div className="dark-mode-switch">
-                <ToggleSwitch
+                {/* <ToggleSwitch
                     label="Dark mode"
                     name="darkmode"
                     onChange={() => setDarkMode(!darkMode)}
                     value={darkMode}
                     textColour="white"
-                />
+                /> */}
             </div>
         </header>
     );

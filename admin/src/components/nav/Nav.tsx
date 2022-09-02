@@ -2,7 +2,6 @@ import { useLocation } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
 import { logout } from '@actions/auth';
-import { clearJwtAndRefreshToken } from 'lib/src/utils/jwt';
 
 import NavGroup from './NavGroup';
 import NavItem from './NavItem';
@@ -33,7 +32,6 @@ const Nav: React.FC = () => {
                         text="Logout"
                         icon="sign-out"
                         onClick={() => {
-                            clearJwtAndRefreshToken();
                             dispatch(logout());
                         }}
                     />

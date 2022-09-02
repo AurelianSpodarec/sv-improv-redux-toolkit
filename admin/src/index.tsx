@@ -1,32 +1,39 @@
-import { createRoot } from 'react-dom/client';
-import { Provider } from 'react-redux';
+import React from 'react';
+import ReactDOM from 'react-dom/client';
 import { BrowserRouter as Router } from 'react-router-dom';
 
-import store from './redux/store';
+import { Provider } from 'react-redux';
+import { store } from './redux-toolkit/store'
+
 import App from './App';
+import config from './config';
+
+
+// import { Provider } from 'react-redux'
 
 import 'lib/src/_styles/generic.scss';
 import './_styles/main.scss';
 
 import { initApi } from 'lib/src/utils/api';
-
-import config from './config';
-
 import ErrorBoundary from 'lib/src/pages/error/ErrorBoundary';
 
 const { API_URL } = config;
-
 initApi(API_URL);
 
-const container = document.getElementById('root');
-const root = createRoot(container!); // eslint-disable-line
+const root = ReactDOM.createRoot(
+    document.getElementById('root') as HTMLElement
+);
 
 root.render(
+    <React.StrictMode>
     <ErrorBoundary>
-        <Router>
+        
             <Provider store={store}>
-                <App />
+                <Router>
+                    <App />
+                </Router>
             </Provider>
-        </Router>
-    </ErrorBoundary>,
+
+    </ErrorBoundary>
+    </React.StrictMode>
 );

@@ -32,13 +32,14 @@ const LoginFormContainer: React.FC = () => {
     }, [formState.email]);
 
     return (
-        <LoginForm
-            handleChange={handleChange}
-            formState={formState}
-            handleSubmit={handleSubmit}
-            isPosting={isPosting}
-            customValidate={customValidate}
-        />
+        // <LoginForm
+        //     handleChange={handleChange}
+        //     formState={formState}
+        //     handleSubmit={handleSubmit}
+        //     isPosting={isPosting}
+        //     customValidate={customValidate}
+        // />
+        <></>
     );
 
     function handleSubmit() {

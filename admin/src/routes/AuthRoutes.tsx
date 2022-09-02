@@ -1,5 +1,5 @@
 import { Route, Switch, useRouteMatch } from 'react-router-dom';
-import Login from '@pages/auth/login/Login';
+import LoginForm from '@pages/login/LoginForm';
 import DefaultRedirect from './DefaultRedirect';
 
 const AuthRoutes: React.FC = () => {
@@ -7,7 +7,7 @@ const AuthRoutes: React.FC = () => {
     return (
         <Switch>
             <Route exact path={`${path}/login`}>
-                <Login />
+                <LoginForm />
             </Route>
             <DefaultRedirect to={`${path}/login`} />
         </Switch>

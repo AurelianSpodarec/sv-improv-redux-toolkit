@@ -12,11 +12,19 @@ import {
     getAdminUsersIsFetching,
 } from '@selectors/adminUsers';
 
+
+// import { useAdminListQuery } from './redux-toolkit/features/admin/admin-services';
+// import { useAdminListQuery } from './../../../redux-toolkit/features/admin/admin-services';
+
 const AdminUsers: React.FC<AdminUsersProps> = ({ showCreateModal = false }) => {
-    useAdminUsersFetch();
-    const adminUsers = useSelector(getAdminUsers);
-    const isFetching = useSelector(getAdminUsersIsFetching);
+    // useAdminUsersFetch();
+    // const adminUsers = useSelector(getAdminUsers);
+    // const isFetching = useSelector(getAdminUsersIsFetching);
     // const error = useSelector(getAdminUsersError);
+
+    // const { data, error, isLoading } =  useAdminListQuery('users');
+
+    // console.log(data)
 
     return (
         <>
@@ -27,8 +35,8 @@ const AdminUsers: React.FC<AdminUsersProps> = ({ showCreateModal = false }) => {
                 </LinkButton>
             </CreateHeader>
 
-            <AdminUsersTable adminUsers={adminUsers} isFetching={isFetching} />
-            {showCreateModal && <CreateAdminUserModal />}
+            {/* <AdminUsersTable adminUsers={adminUsers} isFetching={isFetching} /> */}
+            {/* {showCreateModal && <CreateAdminUserModal />} */}
         </>
     );
 };
