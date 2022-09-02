@@ -11,13 +11,13 @@ export const authApiSlice = apiSlice.injectEndpoints({
             })
         }),
 
-        refreshToken: builder.mutation({
-            query: token => ({
-                url: '/auth/refresh-token',
-                method: 'GET',
-                body: {refreshToken: "fromloclstorage"}
-            })
-        })
+        // refreshToken: builder.mutation({
+        //     query: token => ({
+        //         url: '/auth/refresh-token',
+        //         method: 'GET',
+        //         body: {refreshToken: "fromloclstorage"}
+        //     })
+        // })
  
 
     })
@@ -25,5 +25,5 @@ export const authApiSlice = apiSlice.injectEndpoints({
 
 export const {
     useLoginMutation,
-    refreshToken
+    // refreshToken
 } = authApiSlice

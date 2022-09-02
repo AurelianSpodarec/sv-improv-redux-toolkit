@@ -18,11 +18,6 @@ function LoginForm() {
     const dispatch = useDispatch()
     const [login, { isLoading }] = useLoginMutation();
 
-    // const { formState, setFormState }:any = useState({
-    //     email: "admin@silverchip.com",
-    //     password: "password",
-    // })
-
     async function handleSubmit(e:any) {
         e.preventDefault()
 
@@ -31,7 +26,10 @@ function LoginForm() {
             dispatch(setCredentials({ ...userData}))
             
             console.log("userData", userData)
-        } catch {
+        } catch (error) {
+            // if(!error?.response) {
+            //     console.log("No error response")
+            // } else if(error.response.status === 400) )
             console.log("could not validate user")
         }
     }

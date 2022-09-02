@@ -18,6 +18,9 @@ body: {
 Refresh token
 /auth/refreshToken
 
+`Token` is sent on every request to the server to verify the user
+`Refresh token` is being sent to the server if `token` is invalid
+
 ## Admin
 
 Index

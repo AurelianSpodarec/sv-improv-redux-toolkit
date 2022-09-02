@@ -1,7 +1,6 @@
 import { useLocation } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-
-import { logout } from '@actions/auth';
+ 
 
 import NavGroup from './NavGroup';
 import NavItem from './NavItem';
@@ -30,10 +29,7 @@ const Nav: React.FC = () => {
                     <NavItem
                         to="/auth/login"
                         text="Logout"
-                        icon="sign-out"
-                        onClick={() => {
-                            dispatch(logout());
-                        }}
+                        icon="sign-out"  
                     />
                 </NavGroup>
             </ul>
