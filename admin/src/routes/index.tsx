@@ -1,51 +1,41 @@
-// import { Switch } from 'react-router-dom';
-
-
-import AdminUsersRoutes from './AdminUsersRoutes';
-import AuthRoutes from './AuthRoutes';
-import UsersRoutes from './UsersRoutes';
-import Dashboard from '@pages/dashboard/Dashboard';
-import DefaultRedirect from './DefaultRedirect';
-import ProtectedRoute from './component/ProtectedRoute';
-import AdminList from '@pages/Admin/AdminList/AdminList';
 import { Routes, Route } from 'react-router-dom';
-import LoginForm from '@pages/auth/login/LoginForm';
+import ProtectedRoute from './ProtectedRoute';
+
+// General
+import Layout from '@pages/Layout';
+import NotFound from '@pages/NotFound/NotFound';
+
+// Other
+import Dashboard from '@pages/dashboard/Dashboard'; 
+
+import PropertyList from '@pages/Property/PropertyList';
+import PropertyView from '@pages/Property/PropertyView';
+
+import AdminList from '@pages/Admin/AdminList/AdminList';
+import AdminView from '@pages/Admin/AdminView/AdminView';
+
+import LoginForm from '@pages/Auth/login/LoginForm';
 
 const CustomRoutes: React.FC = () => (
-    <>
     <Routes>
-        {/* <Route path="/" element={<}> */}
+        <Route path="/" element={<Layout />}>
 
-        {/* </Route> */}
+            <Route path="auth/login" element={<LoginForm />} />
+            
+            <Route element={<ProtectedRoute />}>
+                <Route path="/" element={<Dashboard />}/>
 
-        <Route element={<ProtectedRoute />}>
-            <Route path="/" element={<Dashboard />}/>
-            <Route path="/admin-users" element={<AdminList />} />
-            <Route path="/auth/login" element={<LoginForm />} />
+                <Route path="admins" element={<AdminList />} />
+                <Route path="admins/:id" element={<AdminView />} />
+
+                <Route path="properties" element={<PropertyList />} />
+                <Route path="properties/:id" element={<PropertyView />} />
+            </Route>
+
+            <Route path="*" element={<NotFound />} />
+
         </Route>
     </Routes>
-    {/* <ProtectedRoute> */}
-        HI
-    {/* </ProtectedRoute> */}
-    {/* // <Switch>
-    //     <SubRouter exact path="/" auth>
-    //         <Dashboard />
-    //     </SubRouter>
-    //     <SubRouter path="/auth">
-    //         <AuthRoutes />
-    //     </SubRouter>
-    //     <SubRouter path="/users" auth>
-    //         <UsersRoutes />
-    //     </SubRouter>
-    //     <SubRouter path="/admin-users" auth>
-    //         <AdminUsersRoutes />
-    //     </SubRouter>
-    //     <SubRouter path="/properties" auth>
-    //         <AdminUsersRoutes />
-    //     </SubRouter>
-    //     <DefaultRedirect to="/" /> */}
-    {/* // </Switch> */}
-    </>
 );
 
 export default CustomRoutes;

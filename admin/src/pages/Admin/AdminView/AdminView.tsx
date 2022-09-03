@@ -10,15 +10,16 @@ import { AdminUser } from 'src/types/shared/AdminUser';
 import { useParams } from 'react-router-dom';
 import { useGetAdminViewQuery } from '../../../redux-toolkit/features/admin/adminApiSlice';
 
-const AdminView: React.FC<AdminViewProps> = ({ user }) => {
-    if (!user) return null;
+function AdminView() {
+    // if (!user) return null;
  
-    const { id, action } = useParams<{ id: string; action?: string }>();
-    const { data, isLoading, error } = useGetAdminViewQuery(`adminUsers/${id}`)
+    // const { id, action } = useParams<{ id: string; action?: string }>();
+    // const { data, isLoading, error } = useGetAdminViewQuery(`adminUsers/${id}`)
 
-    console.log("admin", data)
+    // console.log("admin", data)
     return (
         <>
+        View
             {/* <Title>
                 Admin - {firstName} {lastName}
             </Title> */}
@@ -48,11 +49,11 @@ const AdminView: React.FC<AdminViewProps> = ({ user }) => {
                 </LinkButton>
             </ButtonRow> */}
         </>
-    );
-};
+    )
+}
 
 interface AdminViewProps {
     user: AdminUser | undefined;
 }
 
-export default AdminView;
+export default AdminView

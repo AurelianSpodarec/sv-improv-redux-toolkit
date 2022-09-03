@@ -22,7 +22,7 @@ const Nav: React.FC = () => {
                 </NavGroup>
 
                 <NavGroup text="User management">
-                    <NavItem to="/admin-users" text="Admins" icon="users-cog" />
+                    <NavItem to="/admins" text="Admins" icon="users-cog" />
                 </NavGroup>
 
                 <NavGroup text="Settings">

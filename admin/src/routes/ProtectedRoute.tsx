@@ -1,5 +1,5 @@
 import { useLocation, Navigate, Outlet } from "react-router-dom";
-import { selectCurrentToken } from "./../../redux-toolkit/features/auth/authSlice";
+import { selectCurrentToken } from "../redux-toolkit/features/auth/authSlice";
 
 function ProtectedRoute() {
     const isAuthenticated = false
@@ -12,4 +12,4 @@ function ProtectedRoute() {
     )
 }
 
-export default ProtectedRoute;
+export default ProtectedRoute

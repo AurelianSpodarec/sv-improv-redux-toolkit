@@ -11,10 +11,10 @@ import Title from 'lib/src/components/typography/Title';
 import { CustomValidateFunction } from 'lib/src/types/shared/formValidation';
 
 import { useDispatch  } from 'react-redux';
-import { setCredentials } from './../../../redux-toolkit/features/auth/authSlice';
-import { useLoginMutation } from './../../../redux-toolkit/features/auth/authApiSlice';
+import { setCredentials } from '../../../redux-toolkit/features/auth/authSlice';
+import { useLoginMutation } from '../../../redux-toolkit/features/auth/authApiSlice';
 
-import { useGetAdminListQuery } from './../../../redux-toolkit/features/admin/adminApiSlice';
+import { useGetAdminListQuery } from '../../../redux-toolkit/features/admin/adminApiSlice';
 import { Link } from 'react-router-dom';
 
 function LoginForm() {
