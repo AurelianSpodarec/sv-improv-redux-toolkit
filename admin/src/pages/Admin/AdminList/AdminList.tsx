@@ -12,7 +12,6 @@ import { useGetAdminListQuery } from '../../../redux-toolkit/features/admin/admi
 const AdminList: React.FC<AdminListProps> = ({ showCreateModal = false }) => {
     const { data, isLoading, error } = useGetAdminListQuery('adminUsers')
 
-    console.log(data)
     if(isLoading) return <>Loading</>
     return (
         <>

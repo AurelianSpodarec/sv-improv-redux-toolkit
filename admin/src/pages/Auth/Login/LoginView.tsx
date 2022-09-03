@@ -1,24 +1,23 @@
 import React, { useState } from 'react';
-
-import ActionButton from 'lib/src/components/button/ActionButton';
-import ButtonRow from 'lib/src/components/button/ButtonRow';
-
-import Form from 'lib/src/components/form/Form';
-import FormRow from 'lib/src/components/form/FormRow';
-import TextInput from 'lib/src/components/form/TextInput';
-import Title from 'lib/src/components/typography/Title';
-
-import { CustomValidateFunction } from 'lib/src/types/shared/formValidation';
+import { Link, useNavigate } from "react-router-dom";
 
 import { useDispatch  } from 'react-redux';
 import { setCredentials } from '../../../redux-toolkit/features/auth/authSlice';
 import { useLoginMutation } from '../../../redux-toolkit/features/auth/authApiSlice';
 
-import { useGetAdminListQuery } from '../../../redux-toolkit/features/admin/adminApiSlice';
-import { Link } from 'react-router-dom';
+import ActionButton from 'lib/src/components/button/ActionButton';
+import ButtonRow from 'lib/src/components/button/ButtonRow';
+import Form from 'lib/src/components/form/Form';
+import FormRow from 'lib/src/components/form/FormRow';
+import TextInput from 'lib/src/components/form/TextInput';
+import Title from 'lib/src/components/typography/Title';
+import { CustomValidateFunction } from 'lib/src/types/shared/formValidation';
+
 
 function LoginView() {
     const dispatch = useDispatch()
+    const navigate = useNavigate()
+
     const [login, { isLoading }] = useLoginMutation();
 
     async function handleSubmit(e:any) {
@@ -26,15 +25,11 @@ function LoginView() {
         try {
             const userData = await login({email: "admin@silverchip.com", password: "password" }).unwrap();
             dispatch(setCredentials({ ...userData }))
-            // console.log("userData", userData)
+            if(userData.token) return navigate("/");
         } catch (error) {
-            // if(!error?.response) {
-            //     console.log("No error response")
-            // } else if(error.response.status === 400) )
             console.log("could not validate user")
         }
     }
- 
 
     return (
         <div className="login-form-wrapper">
