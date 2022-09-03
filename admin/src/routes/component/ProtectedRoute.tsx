@@ -2,15 +2,13 @@ import { useLocation, Navigate, Outlet } from "react-router-dom";
 import { selectCurrentToken } from "./../../redux-toolkit/features/auth/authSlice";
 
 function ProtectedRoute() {
-    const isAuthenticated = true
-    console.log(selectCurrentToken)
-
-    // console.log("Protected route", isAuthenticated);
+    const isAuthenticated = false
+    const location = useLocation()
 
     return (
         isAuthenticated
             ? <Outlet />
-            : <>Noooooo</>
+            : <Navigate to="/login/auth" state={{ from: location }} replace />
     )
 }
 

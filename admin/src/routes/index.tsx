@@ -9,6 +9,7 @@ import DefaultRedirect from './DefaultRedirect';
 import ProtectedRoute from './component/ProtectedRoute';
 import AdminList from '@pages/Admin/AdminList/AdminList';
 import { Routes, Route } from 'react-router-dom';
+import LoginForm from '@pages/auth/login/LoginForm';
 
 const CustomRoutes: React.FC = () => (
     <>
@@ -17,8 +18,11 @@ const CustomRoutes: React.FC = () => (
 
         {/* </Route> */}
 
-        <Route path="/" element={<Dashboard />}/>
-        <Route path="/admin-users" element={<AdminList />}/>
+        <Route element={<ProtectedRoute />}>
+            <Route path="/" element={<Dashboard />}/>
+            <Route path="/admin-users" element={<AdminList />} />
+            <Route path="/auth/login" element={<LoginForm />} />
+        </Route>
     </Routes>
     {/* <ProtectedRoute> */}
         HI
