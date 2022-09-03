@@ -6,7 +6,7 @@ import Layout from '@pages/Layout';
 import NotFound from '@pages/NotFound/NotFound';
 
 // Other
-import Dashboard from '@pages/dashboard/Dashboard'; 
+import Home from '@pages/Home/Home'; 
 
 import PropertyList from '@pages/Property/PropertyList';
 import PropertyView from '@pages/Property/PropertyView';
@@ -14,27 +14,35 @@ import PropertyView from '@pages/Property/PropertyView';
 import AdminList from '@pages/Admin/AdminList/AdminList';
 import AdminView from '@pages/Admin/AdminView/AdminView';
 
-import LoginForm from '@pages/Auth/login/LoginForm';
+import UserList from '@pages/User/UserList';
+import UserView from '@pages/User/UserView';
+
+import LoginView from '@pages/Auth/Login/LoginView';
+
+
 
 const CustomRoutes: React.FC = () => (
     <Routes>
-        <Route path="/" element={<Layout />}>
+    <Route path="/" element={<Layout />}>
 
-            <Route path="auth/login" element={<LoginForm />} />
-            
-            <Route element={<ProtectedRoute />}>
-                <Route path="/" element={<Dashboard />}/>
+        <Route path="auth/login" element={<LoginView />} />
+        
+        <Route element={<ProtectedRoute />}>
+            <Route path="/" element={<Home />}/>
 
-                <Route path="admins" element={<AdminList />} />
-                <Route path="admins/:id" element={<AdminView />} />
+            <Route path="admins" element={<AdminList />} />
+            <Route path="admin/:id" element={<AdminView />} />
 
-                <Route path="properties" element={<PropertyList />} />
-                <Route path="properties/:id" element={<PropertyView />} />
-            </Route>
+            <Route path="users" element={<UserList />} />
+            <Route path="users/:id" element={<UserView />} />
 
-            <Route path="*" element={<NotFound />} />
-
+            <Route path="properties" element={<PropertyList />} />
+            <Route path="properties/:id" element={<PropertyView />} />
         </Route>
+
+        <Route path="*" element={<NotFound />} />
+
+    </Route>
     </Routes>
 );
 

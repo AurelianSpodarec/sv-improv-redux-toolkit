@@ -16,17 +16,17 @@ export const adminApiSlice = apiSlice.injectEndpoints({
             })
         }),
         createAdmin: builder.query({
-            query: (admin:string) => ({
+            query: (body:string) => ({
                 url: `/adminUsers`,
                 method: 'PUT',
-                body: admin
+                body
             })
         }),
         updateAdmin: builder.query({
-            query: (id:string) => ({
+            query: ({id, body}) => ({
                 url: `/adminUsers/${id}`,
                 method: 'PATCH',
-                // body: admin
+                body
             })
         }),
         deleteAdmin: builder.query({
@@ -38,7 +38,7 @@ export const adminApiSlice = apiSlice.injectEndpoints({
         updatePasswordAdmin: builder.query({
             query: (id:string) => ({
                 url: `/adminUsers/${id}/updatePassword`,
-                method: 'DELETE',
+                method: 'PATCH',
             })
         }),
 

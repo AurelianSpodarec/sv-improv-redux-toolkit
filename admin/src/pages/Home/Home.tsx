@@ -19,7 +19,7 @@ const options = [
     { label: 'option 4', value: 4 },
     { label: 'option 5', value: 5 },
 ];
-const Dashboard: React.FC = () => {
+const Home: React.FC = () => {
     const [testError, setTestError] = useState(false);
 
     const [{ text, textArea, select, multiSelect, radio, checkbox, date }, handleChange] = useForm({
@@ -115,4 +115,4 @@ const Dashboard: React.FC = () => {
     );
 };
 
-export default Dashboard;
+export default Home;

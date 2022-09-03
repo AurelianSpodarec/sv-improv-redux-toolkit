@@ -35,7 +35,7 @@ const columns: Column<AdminUser>[] = [
         heading: '',
         getValue: row => (
             <ButtonRow alignment="right">
-                <LinkButton href={`/admin-users/${row.id}`}>View</LinkButton>
+                <LinkButton href={`/admin/${row.id}`}>View</LinkButton>
             </ButtonRow>
         ),
     },

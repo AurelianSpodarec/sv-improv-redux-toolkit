@@ -11,43 +11,40 @@ import { useParams } from 'react-router-dom';
 import { useGetAdminViewQuery } from '../../../redux-toolkit/features/admin/adminApiSlice';
 
 function AdminView() {
-    // if (!user) return null;
- 
-    // const { id, action } = useParams<{ id: string; action?: string }>();
-    // const { data, isLoading, error } = useGetAdminViewQuery(`adminUsers/${id}`)
+    const { id } = useParams<{ id: string; }>();
+    const { data, isLoading, error } = useGetAdminViewQuery(`${id}`)
 
-    // console.log("admin", data)
+    if(isLoading) return <>Loading</>
     return (
         <>
-        View
-            {/* <Title>
-                Admin - {firstName} {lastName}
-            </Title> */}
+            <Title>
+                Admin - {data.firstName} {data.lastName}
+            </Title>
 
-            {/* <ContentBlock>
+            <ContentBlock>
                 <ContentRow>
                     <ContentItem label="Name">
-                        <p>{`${firstName} ${lastName}`}</p>
+                        <p>{`${data.firstName} ${data.lastName}`}</p>
                     </ContentItem>
                     <ContentItem label="Email">
                         <p>
-                            <a href={`mailto:${email}`}>{email}</a>
+                            <a href={`mailto:${data.email}`}>{data.email}</a>
                         </p>
                     </ContentItem>
                 </ContentRow>
             </ContentBlock>
 
             <ButtonRow alignment="left">
-                <LinkButton source="secondary" href={`/admin-users/${id}/edit`}>
+                <LinkButton source="secondary" href={`/admin/${id}/edit`}>
                     Edit
                 </LinkButton>
-                <LinkButton source="secondary" href={`/admin-users/${id}/edit-password`}>
+                <LinkButton source="secondary" href={`/admin/${id}/edit-password`}>
                     Edit password
                 </LinkButton>
-                <LinkButton source="negative" href={`/admin-users/${id}/delete`}>
+                <LinkButton source="negative" href={`/admin/${id}/delete`}>
                     Delete
                 </LinkButton>
-            </ButtonRow> */}
+            </ButtonRow>
         </>
     )
 }

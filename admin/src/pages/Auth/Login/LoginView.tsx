@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 
 import ActionButton from 'lib/src/components/button/ActionButton';
 import ButtonRow from 'lib/src/components/button/ButtonRow';
@@ -17,7 +17,7 @@ import { useLoginMutation } from '../../../redux-toolkit/features/auth/authApiSl
 import { useGetAdminListQuery } from '../../../redux-toolkit/features/admin/adminApiSlice';
 import { Link } from 'react-router-dom';
 
-function LoginForm() {
+function LoginView() {
     const dispatch = useDispatch()
     const [login, { isLoading }] = useLoginMutation();
 
@@ -39,7 +39,7 @@ function LoginForm() {
     return (
         <div className="login-form-wrapper">
             <div className="login-form">
-                <Link to="/admin-users">šsdsdsds</Link>
+                <Link to="/admins">šsdsdsds</Link>
                 <Title>Login</Title>
                 <form onSubmit={(e) => handleSubmit(e)}>
 
@@ -91,7 +91,7 @@ function LoginForm() {
     )
 }
 
-// interface LoginFormProps {
+// interface LoginViewProps {
 //     handleChange?: <T>(name: 'email' | 'password', value: T) => void;
 //     handleSubmit?: () => void;
 //     isPosting?: boolean;
@@ -102,4 +102,4 @@ function LoginForm() {
 //     };
 // }
 
-export default LoginForm;
+export default LoginView;
