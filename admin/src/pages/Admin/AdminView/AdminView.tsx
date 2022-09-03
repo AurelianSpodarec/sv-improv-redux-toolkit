@@ -7,18 +7,23 @@ import LinkButton from 'lib/src/components/button/LinkButton';
 import ButtonRow from 'lib/src/components/button/ButtonRow';
 import Title from 'lib/src/components/typography/Title';
 import { AdminUser } from 'src/types/shared/AdminUser';
+import { useParams } from 'react-router-dom';
+import { useGetAdminViewQuery } from '../../../redux-toolkit/features/admin/adminApiSlice';
 
-const AdminUserComponent: React.FC<AdminUserProps> = ({ user }) => {
+const AdminView: React.FC<AdminViewProps> = ({ user }) => {
     if (!user) return null;
+ 
+    const { id, action } = useParams<{ id: string; action?: string }>();
+    const { data, isLoading, error } = useGetAdminViewQuery(`adminUsers/${id}`)
 
-    const { id, firstName, lastName, email } = user;
+    console.log("admin", data)
     return (
         <>
-            <Title>
+            {/* <Title>
                 Admin - {firstName} {lastName}
-            </Title>
+            </Title> */}
 
-            <ContentBlock>
+            {/* <ContentBlock>
                 <ContentRow>
                     <ContentItem label="Name">
                         <p>{`${firstName} ${lastName}`}</p>
@@ -41,13 +46,13 @@ const AdminUserComponent: React.FC<AdminUserProps> = ({ user }) => {
                 <LinkButton source="negative" href={`/admin-users/${id}/delete`}>
                     Delete
                 </LinkButton>
-            </ButtonRow>
+            </ButtonRow> */}
         </>
     );
 };
 
-interface AdminUserProps {
+interface AdminViewProps {
     user: AdminUser | undefined;
 }
 
-export default AdminUserComponent;
+export default AdminView;

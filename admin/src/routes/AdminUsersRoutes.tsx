@@ -1,29 +1,32 @@
-import { Switch, Route, useRouteMatch } from 'react-router-dom';
+// import { Switch, Route, RouteMatch } from 'react-router-dom';
 
-import AdminUserContainer from '@pages/adminUsers/adminUser/AdminUserContainer';
-import AdminUsers from '@pages/adminUsers/adminUsers/AdminUsers';
+// import AdminUserContainer from '@pages/adminUsers/adminUser/AdminUserContainer';
+import AdminList from '@pages/Admin/AdminList/AdminList';
 import DefaultRedirect from './DefaultRedirect';
 
-const AdminUsersRoutes: React.FC = () => {
-    const { path } = useRouteMatch();
+const AdminListRoutes: React.FC = () => {
+    // const { path } = RouteMatch();
 
     return (
-        <Switch>
-            <Route exact path={path}>
-                <AdminUsers />
-            </Route>
-            <Route exact path={`${path}/create`}>
-                <AdminUsers showCreateModal />
-            </Route>
-            <Route exact path={`${path}/:id`}>
-                <AdminUserContainer />
-            </Route>
-            <Route exact path={`${path}/:id/:action`}>
-                <AdminUserContainer />
-            </Route>
-            <DefaultRedirect to={path} />
-        </Switch>
+        <>
+         {/* // <Switch> */}
+            {/* <Route path={path}> */}
+                {/* <Admi/nList /> */}
+            {/* </Route>/ */}
+            {/* <Route path={`${path}/create`}> */}
+                {/* <AdminList showCreateModal /> */}
+            {/* </Route> */}
+            {/* <Route path={`${path}/:id`}> */}
+                {/* <AdminUserContainer /> */}
+            {/* </Route> */}
+            {/* <Route path={`${path}/:id/:action`}> */}
+                {/* <AdminUserContainer /> */}
+            {/* </Route> */}
+            {/* <DefaultRedirect to={path} /> */}
+        {/* </Switch> */}
+        </>
+       
     );
 };
 
-export default AdminUsersRoutes;
+export default AdminListRoutes;

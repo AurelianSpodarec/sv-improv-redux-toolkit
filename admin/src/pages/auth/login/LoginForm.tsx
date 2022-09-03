@@ -11,8 +11,11 @@ import Title from 'lib/src/components/typography/Title';
 import { CustomValidateFunction } from 'lib/src/types/shared/formValidation';
 
 import { useDispatch  } from 'react-redux';
-import { setCredentials } from './../../redux-toolkit/features/auth/authSlice';
-import { useLoginMutation } from './../../redux-toolkit/features/auth/authApiSlice';
+import { setCredentials } from './../../../redux-toolkit/features/auth/authSlice';
+import { useLoginMutation } from './../../../redux-toolkit/features/auth/authApiSlice';
+
+import { useGetAdminListQuery } from './../../../redux-toolkit/features/admin/adminApiSlice';
+import { Link } from 'react-router-dom';
 
 function LoginForm() {
     const dispatch = useDispatch()
@@ -20,12 +23,10 @@ function LoginForm() {
 
     async function handleSubmit(e:any) {
         e.preventDefault()
-
         try {
             const userData = await login({email: "admin@silverchip.com", password: "password" }).unwrap();
-            dispatch(setCredentials({ ...userData}))
-            
-            console.log("userData", userData)
+            dispatch(setCredentials({ ...userData }))
+            // console.log("userData", userData)
         } catch (error) {
             // if(!error?.response) {
             //     console.log("No error response")
@@ -33,11 +34,12 @@ function LoginForm() {
             console.log("could not validate user")
         }
     }
+ 
 
     return (
         <div className="login-form-wrapper">
             <div className="login-form">
-
+                <Link to="/admin-users">šsdsdsds</Link>
                 <Title>Login</Title>
                 <form onSubmit={(e) => handleSubmit(e)}>
 

@@ -43,7 +43,7 @@ const Dashboard: React.FC = () => {
     return (
         <>
             <Title>Welcome to Oak!</Title>
-            <Form onSubmit={() => console.log('submit')} onCancel={() => console.log('cancel')}>
+            {/* <Form onSubmit={() => console.log('submit')} onCancel={() => console.log('cancel')}>
                 <FormRow>
                     <TextInput
                         label="Text input"
@@ -106,11 +106,11 @@ const Dashboard: React.FC = () => {
                         required
                         customValidate={customvalidateText}
                     />
-                </FormRow>
+                </FormRow> */}
                 <ActionButton source="negative" onClick={() => setTestError(true)}>
                     Explode
                 </ActionButton>
-            </Form>
+            {/* </Form> */}
         </>
     );
 };

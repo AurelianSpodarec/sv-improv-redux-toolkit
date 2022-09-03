@@ -1,12 +1,13 @@
-import { Route, Switch, useRouteMatch } from 'react-router-dom';
+import { Route,} from 'react-router-dom';
   
 
 import DefaultRedirect from './DefaultRedirect';
 
 const UsersRoutes: React.FC = () => {
-    const { path } = useRouteMatch();
+    // const { path } = useRouteMatch();
     return (
-        <Switch>
+        <>
+        {/* // <Switch> */}
             {/* <Route exact path={`${path}`}>
                 <Users />
             </Route>
@@ -17,7 +18,8 @@ const UsersRoutes: React.FC = () => {
                 <UserContainer />
             </Route>
             <DefaultRedirect to={path} /> */}
-        </Switch>
+        {/* // </Switch> */}
+        </>
     );
 };
 

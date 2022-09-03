@@ -2,8 +2,7 @@ import Form from 'lib/src/components/form/Form';
 import FormRow from 'lib/src/components/form/FormRow';
 import TextInput from 'lib/src/components/form/TextInput';
 
-import Modal from 'lib/src/components/modal/Modal';
-import useCreateAdmin from './hooks/useCreateAdmin';
+import Modal from 'lib/src/components/modal/Modal'; 
 
 const CreateAdminUserModal: React.FC = () => {
     // const {

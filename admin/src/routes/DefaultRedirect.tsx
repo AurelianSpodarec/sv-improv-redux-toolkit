@@ -1,9 +1,13 @@
-import { Redirect, Route } from 'react-router-dom';
+// import { Redirect, Route } from 'react-router-dom';
 
 const DefaultRedirect: React.FC<DefaultRedirectProps> = ({ to }) => (
-    <Route>
-        <Redirect to={to} />
-    </Route>
+    <>
+    {/* // <Route> */}
+        {/* // hi */}
+        {/* <Redirect to={to} /> */}
+    {/* // </Route> */}
+    
+    </>
 );
 
 interface DefaultRedirectProps {
