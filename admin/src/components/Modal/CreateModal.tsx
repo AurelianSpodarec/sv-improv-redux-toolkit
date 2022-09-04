@@ -1,31 +1,30 @@
-import { store } from '../../store/store';
-import react, { useEffect, useState, useRef } from 'react';
 import * as ReactDOM from 'react-dom';
 
 import ModalConfirm from './ModalConfirm/ModalConfirm';
 import ModalSave from './ModalSave/ModalSave';
-import { connect } from 'react-redux';
 
+import ModalProvider from 'src/context/modal/modalContext';
+import useModal from './../../../src/context/modal/useModal';
 
 function CreateModal({children}:any) {
     const doc = document.getElementById('root');
-
-    const modalState = store.getState().modal
-    const modalConfig = modalState.config;
     
+    const modalContext = useModal()// @ts-ignore
+    const modalData = modalContext.data;
+
     const modals = {
-        confirm: <ModalConfirm config={modalConfig} />,
-        save: <ModalSave config={modalConfig} />
+        confirm: <ModalConfirm config={modalData} />,
+        save: <ModalSave config={modalData} />
     }
 
-    if(!doc) return <></>
-    if(!modalState.isOpen) return <></>
-    return ReactDOM.createPortal( 
-        <div className={`modal ${modalState.isOpen ? 'is-open' : ''} `}>
+    if(!doc) return <></>// @ts-ignore
+    if(!modalContext.isOpen) return <></>
+    return ReactDOM.createPortal( // @ts-ignore
+        <div className={`modal ${modalContext.isOpen ? 'is-open' : ''} `}>
             <div className="modal__inner">
                 
                 {// @ts-ignore
-                modals[modalState.config.type]
+                modals[modalData.type]
                 }
             </div>
         </div>

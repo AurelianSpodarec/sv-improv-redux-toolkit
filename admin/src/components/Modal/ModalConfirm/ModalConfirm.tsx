@@ -1,21 +1,18 @@
-import { closeModal } from "../../../store/features/modal/modalSlice";
-import { useDispatch } from "react-redux";
+import useModal from "./../../../../src/context/modal/useModal";
 
 function ModalConfirm({config}:ModalConfirmProps) {
-
+    const modalContext = useModal()
     const { id, type, title, description, onAction, option } = config;
-    const dispatch = useDispatch();
-    console.log(config)
 
     function handleAction(e:any) {
         e.preventDefault()
-        onAction()
-        closeModal()
+        onAction() //@ts-ignore
+        modalContext.close()
     }
 
     function handleCancel(e:any) {
-        e.preventDefault()
-        closeModal()
+        e.preventDefault()//@ts-ignore
+        modalContext.close()
     }
 
     return (

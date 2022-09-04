@@ -5,7 +5,6 @@ import storage from 'redux-persist/lib/storage'
 import { apiSlice } from "../services/improveasy/api/apiSlice";
 
 import authReducer from "./features/auth/authSlice";
-import modalReducer from "./features/modal/modalSlice";
 // import { adminAPI } from "./features/admin/admin-services";
 // export 
 
@@ -22,7 +21,6 @@ export const store = configureStore({
     reducer: {
         [apiSlice.reducerPath]: apiSlice.reducer,
         auth: persistedAuth,
-        modal: modalReducer,
     },
     middleware: (getDefaultMiddleware) =>  
         getDefaultMiddleware().concat(apiSlice.middleware),

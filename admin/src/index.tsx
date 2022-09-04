@@ -16,6 +16,7 @@ import './_styles/main.scss';
 
 import { initApi } from 'lib/src/utils/api';
 import ErrorBoundary from 'lib/src/pages/error/ErrorBoundary';
+import ModalProvider from './context/modal/modalContext';
 
 const { API_URL } = config;
 initApi(API_URL);
@@ -31,11 +32,16 @@ root.render(
 
         <Provider store={store}>
             <PersistGate loading={null} persistor={persistor}>
+
+                <ModalProvider>
                 <BrowserRouter>
                     <Routes>
                         <Route path="/*" element={<App />} />
                     </Routes>
                 </BrowserRouter>
+                </ModalProvider>
+
+                
             </PersistGate>
         </Provider>    
     

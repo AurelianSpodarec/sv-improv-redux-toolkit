@@ -1,5 +1,4 @@
 import react, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 
 import AdminUsersTable from './components/AdminUsersTable';
 import Title from 'lib/src/components/typography/Title';
@@ -7,17 +6,18 @@ import CreateHeader from '@components/layout/createHeader/CreateHeader';
 import LinkButton from 'lib/src/components/button/LinkButton';
 
 import { useGetAdminListQuery, useCreateAdminMutation } from '../../../store/features/admin/adminApiSlice'; 
-import { closeModal, openModal } from '../../../store/features/modal/modalSlice';
+import useModal from '../../../../src/context/modal/useModal';
+
 
 const AdminList: React.FC<AdminListProps> = ({ showCreateModal = false }) => {
     const { data, isLoading, error } = useGetAdminListQuery('adminUsers')
-    const dispatch = useDispatch();
-
     const [createAdmin] = useCreateAdminMutation()
 
+    const modalContext = useModal()
+
     // PLAYGROUND
-    const [state, setState] = useState({
-        email: "wooooooo322323eeeo@gmail.com",
+    const [formData, setFormData] = useState({
+        email: "bbbbbbbbbbbbbbbbbbbbbbbbbbbbb@gmail.com",
             firstName: "wooo",
             lastName: "wowewe",
             password: "qweqweqwe",
@@ -26,15 +26,16 @@ const AdminList: React.FC<AdminListProps> = ({ showCreateModal = false }) => {
 
     async function handlerCreateAdmin(e:any) {
         e.preventDefault();
-     
-        const config ={
+    
+         // @ts-ignore
+        modalContext.setConfig({
             type: 'save',
             title: "Create Admin",
             description: "",
-            action: () => createAdmin(state)
-        }
-
-        dispatch(openModal(config))
+            // action: "",
+            onAction: createAdmin(formData)
+        })// @ts-ignore
+        modalContext.open()
     }
 
     if(isLoading) return <>Loading</>

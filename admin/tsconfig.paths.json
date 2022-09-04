@@ -6,6 +6,7 @@
             "@pages/*": ["src/pages/*"],
             "@components/*": ["src/components/*"],
             "@content/*": ["src/_content/*"],
+            "@context/*": ["src/context/**/*"]
         },
     }
 }

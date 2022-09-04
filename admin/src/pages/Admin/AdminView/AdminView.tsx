@@ -11,27 +11,32 @@ import Title from 'lib/src/components/typography/Title';
 import { AdminUser } from 'src/types/shared/AdminUser';
 
 import { useDeleteAdminMutation, useGetAdminViewQuery } from '../../../store/features/admin/adminApiSlice';
-import { openModal } from '../../../store/features/modal/modalSlice';
+
+import useModal from './../../../../src/context/modal/useModal';
 
 function AdminView() {
     const { id } = useParams();
     const { data, isLoading, error } = useGetAdminViewQuery(`${id}`)
+
+    const modalContext = useModal()
+
+    console.log(modalContext)
 
     const dispatch = useDispatch()
     const [deleteAdmin] = useDeleteAdminMutation()
     if(isLoading) return <>Loading</>
    
     function handleDelete() {
-        const config = {
+        // @ts-ignore
+        modalContext.setConfig({
             id,
             type: "confirm",
             option: "delete",
             title: `Admin ${data.firstName} ${data.lastName}`,
             description: "Hiskdjskdjsdksjdi",
             onAction: () => deleteAdmin(`${id}`)
-        }
-        console.log(config)
-        dispatch(openModal(config))
+        })// @ts-ignore
+        modalContext.open()
     }
 
     return (
