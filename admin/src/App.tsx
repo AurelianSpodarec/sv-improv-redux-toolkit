@@ -9,7 +9,6 @@ import CreateModal from '@components/Modal/CreateModal';
 // import useDarkMode from 'lib/src/hooks/useDarkMode';
 
 const App: React.FC = () => {
-    const [showModal, setShowModal] = useState(false);
 
     return (
         <>

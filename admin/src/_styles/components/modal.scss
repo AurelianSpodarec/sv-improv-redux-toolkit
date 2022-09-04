@@ -10,4 +10,43 @@
     &.is-open {
         visibility: visible;
     }
+
+    &__inner {
+        margin-top: auto;
+        margin-bottom: auto;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+}
+
+.modal-confirm {
+    width: 340px;
+    margin: 0 auto;
+    text-align: center;
+    background-color: #1f2937;
+    padding: 0.5rem;
+    border-radius: 0.75rem;
+    &__inner {
+
+    }
+
+    &__header {
+        color: white;
+    }
+
+    &__section {
+        color: white;
+        padding: 8px;
+    }
+
+    &__footer {
+        display: flex;
+        justify-content: space-between;
+        &-action {
+            display: grid;
+            gap: 0.5rem;
+            grid-template-columns: repeat(auto-fit,minmax(0,1fr));
+        }
+
+    }
 }

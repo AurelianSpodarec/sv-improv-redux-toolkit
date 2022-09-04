@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from "react-router-dom";
 
 import { useDispatch  } from 'react-redux';
-import { setCredentials } from '../../../redux-toolkit/features/auth/authSlice';
-import { useLoginMutation } from '../../../redux-toolkit/features/auth/authApiSlice';
+import { setCredentials } from '../../../store/features/auth/authSlice';
+import { useLoginMutation } from '../../../store/features/auth/authApiSlice';
 
 import ActionButton from 'lib/src/components/button/ActionButton';
 import ButtonRow from 'lib/src/components/button/ButtonRow';

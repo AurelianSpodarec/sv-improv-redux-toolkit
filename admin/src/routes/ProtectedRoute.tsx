@@ -1,6 +1,6 @@
 import { useLocation, Navigate, Outlet } from "react-router-dom";
-import { store } from "./../redux-toolkit/store";
-import { selectCurrentToken } from "../redux-toolkit/features/auth/authSlice";
+import { store } from "../store/store";
+import { selectCurrentToken } from "../store/features/auth/authSlice";
 
 function ProtectedRoute() {
     const location = useLocation()

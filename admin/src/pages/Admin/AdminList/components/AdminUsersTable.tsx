@@ -11,6 +11,13 @@ const AdminUsersTable: React.FC<AdminUsersTableProps> = ({ adminUsers, isFetchin
 
 const columns: Column<AdminUser>[] = [
     {
+        key: 0,
+        heading: "ID",
+        getValue: row => row.id,
+        getSort: (a, b) => a.id,
+        searchable: false,
+    },
+    {
         key: 1,
         heading: 'Name',
         getValue: row => `${row.firstName} ${row.lastName}`,

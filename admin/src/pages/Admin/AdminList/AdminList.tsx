@@ -1,23 +1,23 @@
 import react, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import AdminUsersTable from './components/AdminUsersTable';
 import Title from 'lib/src/components/typography/Title';
 import CreateHeader from '@components/layout/createHeader/CreateHeader';
 import LinkButton from 'lib/src/components/button/LinkButton';
 
-import { useGetAdminListQuery, useCreateAdminMutation } from '../../../redux-toolkit/features/admin/adminApiSlice'; 
+import { useGetAdminListQuery, useCreateAdminMutation } from '../../../store/features/admin/adminApiSlice'; 
+import { closeModal, openModal } from '../../../store/features/modal/modalSlice';
 
 const AdminList: React.FC<AdminListProps> = ({ showCreateModal = false }) => {
     const { data, isLoading, error } = useGetAdminListQuery('adminUsers')
+    const dispatch = useDispatch();
 
-
-    // This needs to be dynamic for each save modal
     const [createAdmin] = useCreateAdminMutation()
 
     // PLAYGROUND
     const [state, setState] = useState({
-        email: "woooooooeeeo@gmail.com",
+        email: "wooooooo322323eeeo@gmail.com",
             firstName: "wooo",
             lastName: "wowewe",
             password: "qweqweqwe",
@@ -26,17 +26,19 @@ const AdminList: React.FC<AdminListProps> = ({ showCreateModal = false }) => {
 
     async function handlerCreateAdmin(e:any) {
         e.preventDefault();
-        const a = await createAdmin(state)
-        console.log(a)
+     
+        const config ={
+            type: 'save',
+            title: "Create Admin",
+            description: "",
+            action: () => createAdmin(state)
+        }
+
+        dispatch(openModal(config))
     }
 
-    // User needs to be able to open a modal
-    // pass in the handlerCreateAdmin
-    //END PLAYGROUND
-
-
-
     if(isLoading) return <>Loading</>
+    if(error) return <>Most likely Not authorized</>
     return (
         <>
             <CreateHeader title="Admins">

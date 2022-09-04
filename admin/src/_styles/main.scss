@@ -26,6 +26,11 @@ html, body, #root, #admin-body {
     overflow: auto;
 }
 
+.w-full {
+    width: 100%;
+}
+
+
 // login form
 .login-form-wrapper {
     display: flex;

@@ -1,15 +1,13 @@
 import { fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { createApi } from "@reduxjs/toolkit/query/react";
 
-import { setCredentials, logOut } from "./../../../redux-toolkit/features/auth/authSlice"//redux-toolkit/features/auth/authSlice";
+import { setCredentials, logOut } from "../../../store/features/auth/authSlice"//redux-toolkit/features/auth/authSlice";
  
 const baseQuery = fetchBaseQuery({
     baseUrl: 'https://improveasy-admin-api.madeatsilverchip.com/',
     credentials: 'omit',
     prepareHeaders: (headers, { getState }:any) => {
         const token = getState().auth.token
-    
-        console.log("tokennnnn@", token)
 
         if(token) headers.set('Authorization', `Bearer ${token}`)
         return headers
@@ -17,15 +15,17 @@ const baseQuery = fetchBaseQuery({
 })
 
 const baseQueryWithReauth = async (args:any, api:any, extraOptions:any) => {
-    let result = baseQuery(args, api, extraOptions)
-    
+    let result = await baseQuery(args, api, extraOptions)
+ 
     // @ts-ignore
-    if(result?.error?.originalStatus === 403) {
+    console.log(result)
+    if(result?.error?.status === 403 || result?.error?.status === 401) {
         console.log("sending refresh token")
         const refreshResult = await baseQuery('/auth/refresh-token', api, extraOptions)
         console.log("baseQueryWithReauth", refreshResult) 
 
         if(refreshResult?.data) {
+            console.log("refreshResult???")
             const user = api.getState().auth.user 
             api.dispatch(setCredentials({...refreshResult.data, user}))
 

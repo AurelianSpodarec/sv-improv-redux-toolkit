@@ -1,4 +1,4 @@
-import { apiSlice } from "./../../../services/improveasy/api/apiSlice";
+import { apiSlice } from "../../../services/improveasy/api/apiSlice";
 
 export const authApiSlice = apiSlice.injectEndpoints({
     endpoints: builder => ({

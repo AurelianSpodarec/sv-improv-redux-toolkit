@@ -2,7 +2,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import { persistStore, persistReducer } from 'redux-persist'
 import storage from 'redux-persist/lib/storage' 
 
-import { apiSlice } from "./../services/improveasy/api/apiSlice";
+import { apiSlice } from "../services/improveasy/api/apiSlice";
 
 import authReducer from "./features/auth/authSlice";
 import modalReducer from "./features/modal/modalSlice";

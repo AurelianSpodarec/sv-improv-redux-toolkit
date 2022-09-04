@@ -2,7 +2,7 @@
     "compilerOptions": {
         "baseUrl": ".",
         "paths": {
-            "@store/*": ["src/redux-toolkit/*"],
+            // "@store/*": ["src/redux-toolkit/**/**/*"],
             "@pages/*": ["src/pages/*"],
             "@components/*": ["src/components/*"],
             "@content/*": ["src/_content/*"],
