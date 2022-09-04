@@ -3,11 +3,11 @@ import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import { Provider } from 'react-redux';
-import { store } from './redux-toolkit/store'
+import { persistor, store } from './redux-toolkit/store'
+import { PersistGate } from 'redux-persist/integration/react'
 
 import App from './App';
 import config from './config';
-
 
 // import { Provider } from 'react-redux'
 
@@ -24,18 +24,19 @@ const root = ReactDOM.createRoot(
     document.getElementById('root') as HTMLElement
 );
 
+
 root.render(
     <React.StrictMode>
     <ErrorBoundary>
 
         <Provider store={store}>
-            
-            <BrowserRouter>
-                <Routes>
-                    <Route path="/*" element={<App />} />
-                </Routes>
-            </BrowserRouter>
-
+            <PersistGate loading={null} persistor={persistor}>
+                <BrowserRouter>
+                    <Routes>
+                        <Route path="/*" element={<App />} />
+                    </Routes>
+                </BrowserRouter>
+            </PersistGate>
         </Provider>    
     
     </ErrorBoundary>

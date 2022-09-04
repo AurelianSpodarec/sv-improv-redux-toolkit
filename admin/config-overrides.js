@@ -8,13 +8,8 @@ module.exports = function (config, env) {
         override(
             addDecoratorsLegacy(),
             addWebpackAlias({
-                '@reducers': path.resolve(__dirname, 'src/redux/reducers'),
-                '@actions': path.resolve(__dirname, 'src/redux/actions'),
-                '@selectors': path.resolve(__dirname, 'src/redux/selectors'),
                 '@pages': path.resolve(__dirname, 'src/pages'),
                 '@components': path.resolve(__dirname, 'src/components'),
-                '@routes': path.resolve(__dirname, 'src/routes'),
-                '@styles': path.resolve(__dirname, 'src/_styles'),
                 '@content': path.resolve(__dirname, 'src/_content'),
             }),
             babelInclude([path.resolve('src'), fs.realpathSync('node_modules/lib/src')]),

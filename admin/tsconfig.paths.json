@@ -2,15 +2,10 @@
     "compilerOptions": {
         "baseUrl": ".",
         "paths": {
-            "@reducers/*": ["src/redux/reducers/*"],
-            "@actions/*": ["src/redux/actions/*"],
-            "@selectors/*": ["src/redux/selectors/*"],
+            "@store/*": ["src/redux-toolkit/*"],
             "@pages/*": ["src/pages/*"],
             "@components/*": ["src/components/*"],
-            "@routes/*": ["src/routes/*"],
-            "@styles/*": ["src/_styles/*"],
             "@content/*": ["src/_content/*"],
-            // "@services/*": ["src/services/**/**/*"]
         },
     }
 }

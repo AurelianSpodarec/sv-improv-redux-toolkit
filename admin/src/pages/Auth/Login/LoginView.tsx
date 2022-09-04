@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from "react-router-dom";
 
 import { useDispatch  } from 'react-redux';
@@ -19,6 +19,10 @@ function LoginView() {
     const navigate = useNavigate()
 
     const [login, { isLoading }] = useLoginMutation();
+
+    useEffect(() => {
+        // TODO: if logged in navigate to homepage
+    })
 
     async function handleSubmit(e:any) {
         e.preventDefault()

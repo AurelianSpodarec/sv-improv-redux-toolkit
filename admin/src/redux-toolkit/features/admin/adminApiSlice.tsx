@@ -15,21 +15,21 @@ export const adminApiSlice = apiSlice.injectEndpoints({
                 method: 'GET',
             })
         }),
-        createAdmin: builder.query({
-            query: (body:string) => ({
-                url: `/adminUsers`,
-                method: 'PUT',
+        createAdmin: builder.mutation({
+            query: (body:object) => ({
+                url: '/adminUsers',
+                method: 'POST',
                 body
             })
         }),
-        updateAdmin: builder.query({
+        updateAdmin: builder.mutation({
             query: ({id, body}) => ({
                 url: `/adminUsers/${id}`,
                 method: 'PATCH',
                 body
             })
         }),
-        deleteAdmin: builder.query({
+        deleteAdmin: builder.mutation({
             query: (id:string) => ({
                 url: `/adminUsers/${id}`,
                 method: 'DELETE',
@@ -48,8 +48,8 @@ export const adminApiSlice = apiSlice.injectEndpoints({
 export const {
     useGetAdminListQuery,
     useGetAdminViewQuery,
-    useCreateAdminQuery,
-    useUpdateAdminQuery,
-    useDeleteAdminQuery,
+    useCreateAdminMutation,
+    useUpdateAdminMutation,
+    useDeleteAdminMutation,
     useUpdatePasswordAdminQuery,
 } = adminApiSlice
