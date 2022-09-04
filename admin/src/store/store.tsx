@@ -11,9 +11,10 @@ import authReducer from "./features/auth/authSlice";
 const authTokenConfig = {
     key: 'auth',
     storage,
+    blackList: [],
     whiteList: ['refreshToken'],
-    blackList: []
 }
+
 
 const persistedAuth = persistReducer(authTokenConfig, authReducer)
 

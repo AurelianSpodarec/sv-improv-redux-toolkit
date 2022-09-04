@@ -12,11 +12,20 @@ interface ModalConfig {
         title: undefined,
         description: undefined,
         onAction: undefined,
+        fields: [],
     }
 }
 
 function ModalProvider({children}:any) {
 
+    
+    const [formState, setFormState] = useState({
+        email: "2323sdfsbeew2323233ewewb@gmail.com",
+            firstName: "p2322323333233ooooooooopoo",
+            lastName: "wowewe",
+            password: "qweqweqwe",
+            confirmPassword: "qweqweqwe"
+    })
     const [isOpen, setIsOpen] = useState(false);
     const [config, setConfig] = useState(
         {
@@ -27,11 +36,12 @@ function ModalProvider({children}:any) {
                 title: undefined,
                 description: undefined,
                 onAction: undefined,
+                fields: [],
         }
     );
 
-    function setModalConfig(data:any) {
-        setConfig(data)
+    function createFormState() {
+
     }
 
     function setModalOpen() {
@@ -41,17 +51,23 @@ function ModalProvider({children}:any) {
     function setModalClose() {
         setIsOpen(false)
     }
+
+    function onValueChange() {
+
+    }
     
-    const value = {
+    const readValues = {
         data: config,
         isOpen,
         setConfig,
         close: setModalClose,
         open: setModalOpen,
+        onValueChange,
+        formState
     };
 
     return (// @ts-ignore
-        <ModalContext.Provider value={value}>
+        <ModalContext.Provider value={readValues}>
             {children}
         </ModalContext.Provider>
     )

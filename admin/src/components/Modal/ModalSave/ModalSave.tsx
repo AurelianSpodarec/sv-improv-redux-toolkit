@@ -1,13 +1,17 @@
+import { useEffect, useState } from "react";
+import ModalInputList from "../components/ModalInputList";
 import useModal from "./../../../../src/context/modal/useModal";
 
 function ModalSave({config}:any) {
-    const modalContext = useModal()
+    const modalContext = useModal()//@ts-ignore
+    const modalData = modalContext.data;
+
     const { id, type, title, description, onAction, option } = config;
 
-    console.log(config.onAction)
+
     function handleAction(e:any) {
-        e.preventDefault()
-        onAction() //@ts-ignore
+        e.preventDefault()//@ts-ignore
+        onAction(modalContext.formState) //@ts-ignore
         modalContext.close()
     }
 
@@ -17,17 +21,16 @@ function ModalSave({config}:any) {
     }
 
     return (
-        <div>
-            <header>
+        <div className="modal-save">
+            <header className="modal-save__header">
 
             </header>
 
-            <section>
-                {/* inputs from json */}
-                <input />
+            <section className="modal-save__section">
+                <ModalInputList data={modalData.inputs} />
             </section>
 
-            <footer className="modal-confirm__footer">
+            <footer className="modal-save__footer">
                 <button type="button" className="w-full" onClick={(e) => handleCancel(e)}>
                     Cancel
                 </button>

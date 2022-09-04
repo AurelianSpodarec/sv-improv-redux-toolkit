@@ -5,14 +5,17 @@ import ModalSave from './ModalSave/ModalSave';
 
 import ModalProvider from 'src/context/modal/modalContext';
 import useModal from './../../../src/context/modal/useModal';
+import { useState } from 'react';
 
-function CreateModal({children}:any) {
+
+function CreateModal() {
     const doc = document.getElementById('root');
     
     const modalContext = useModal()// @ts-ignore
     const modalData = modalContext.data;
 
-    const modals = {
+
+    const modalOptions = {
         confirm: <ModalConfirm config={modalData} />,
         save: <ModalSave config={modalData} />
     }
@@ -20,15 +23,15 @@ function CreateModal({children}:any) {
     if(!doc) return <></>// @ts-ignore
     if(!modalContext.isOpen) return <></>
     return ReactDOM.createPortal( // @ts-ignore
-        <div className={`modal ${modalContext.isOpen ? 'is-open' : ''} `}>
+        <aside role="dialog" className={`modal ${modalContext.isOpen ? 'is-open' : ''} `}>
             <div className="modal__inner">
                 
                 {// @ts-ignore
-                modals[modalData.type]
-                }
+                modalOptions[modalData.type]}
             </div>
-        </div>
+        </aside>
     , doc)
 }
 
 export default CreateModal;
+

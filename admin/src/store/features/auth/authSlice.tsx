@@ -19,8 +19,6 @@ const authSlice = createSlice({
             state.refreshToken = refreshToken
             state.user = jwtDecode(token)
 
-            console.log(jwtDecode(token))
-
             // const jwt = localStorage.getItem('jwt');
             // const refreshToken = localStorage.getItem('refreshToken');
 

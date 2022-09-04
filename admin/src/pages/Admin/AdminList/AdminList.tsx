@@ -1,7 +1,6 @@
 import react, { useState } from 'react';
 
 import AdminUsersTable from './components/AdminUsersTable';
-import Title from 'lib/src/components/typography/Title';
 import CreateHeader from '@components/layout/createHeader/CreateHeader';
 import LinkButton from 'lib/src/components/button/LinkButton';
 
@@ -15,25 +14,34 @@ const AdminList: React.FC<AdminListProps> = ({ showCreateModal = false }) => {
 
     const modalContext = useModal()
 
-    // PLAYGROUND
-    const [formData, setFormData] = useState({
-        email: "bbbbbbbbbbbbbbbbbbbbbbbbbbbbb@gmail.com",
-            firstName: "wooo",
-            lastName: "wowewe",
-            password: "qweqweqwe",
-            confirmPassword: "qweqweqwe"
-    })
-
     async function handlerCreateAdmin(e:any) {
         e.preventDefault();
-    
          // @ts-ignore
         modalContext.setConfig({
             type: 'save',
             title: "Create Admin",
             description: "",
-            // action: "",
-            onAction: createAdmin(formData)
+            inputs: [
+                {
+                    col: 'w-full',
+                    name: "email",
+                    type: "email",
+                    placeholder: "Email"
+                },
+                {
+                    col: 'w-full',
+                    name: "firstName",
+                    type: "text",
+                    placeholder: "First Name"
+                },
+                {
+                    col: 'w-full',
+                    name: "lastName",
+                    type: "text",
+                    placeholder: "Last Name"
+                }
+            ],// @ts-ignore
+            onAction: (...args) => createAdmin(...args)
         })// @ts-ignore
         modalContext.open()
     }

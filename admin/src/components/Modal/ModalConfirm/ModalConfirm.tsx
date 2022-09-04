@@ -5,7 +5,7 @@ function ModalConfirm({config}:ModalConfirmProps) {
     const { id, type, title, description, onAction, option } = config;
 
     function handleAction(e:any) {
-        e.preventDefault()
+        e.preventDefault()//@ts-ignore
         onAction() //@ts-ignore
         modalContext.close()
     }

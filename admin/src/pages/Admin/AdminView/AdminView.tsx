@@ -16,14 +16,12 @@ import useModal from './../../../../src/context/modal/useModal';
 
 function AdminView() {
     const { id } = useParams();
-    const { data, isLoading, error } = useGetAdminViewQuery(`${id}`)
-
     const modalContext = useModal()
 
-    console.log(modalContext)
-
-    const dispatch = useDispatch()
+    const { data, isLoading, error } = useGetAdminViewQuery(`${id}`)
     const [deleteAdmin] = useDeleteAdminMutation()
+
+
     if(isLoading) return <>Loading</>
    
     function handleDelete() {
