@@ -8,10 +8,9 @@ import { useGetAdminListQuery, useCreateAdminMutation } from '../../../store/fea
 import useModal from '../../../../src/context/modal/useModal';
 
 
-const AdminList: React.FC<AdminListProps> = ({ showCreateModal = false }) => {
+function AdminList() {
     const { data, isLoading, error } = useGetAdminListQuery('adminUsers')
     const [createAdmin] = useCreateAdminMutation()
-
     const modalContext = useModal()
 
     async function handlerCreateAdmin(e:any) {
@@ -64,20 +63,13 @@ const AdminList: React.FC<AdminListProps> = ({ showCreateModal = false }) => {
         <>
             <CreateHeader title="Admins">
                 <button type="button" onClick={(e) => handlerCreateAdmin(e)}>
-                Create Admin
+                    Create Admin
                 </button>
-                {/* <LinkButton source="positive" icon="plus" href="/admin-users/create"> */}
-                    {/* Create */}
-                {/* </LinkButton> */}
             </CreateHeader>
 
             <AdminUsersTable adminUsers={data} isFetching={isLoading} />
         </>
     );
-};
-
-interface AdminListProps {
-    showCreateModal?: boolean;
 }
 
 export default AdminList;

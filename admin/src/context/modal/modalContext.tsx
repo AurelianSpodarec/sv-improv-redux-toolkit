@@ -7,7 +7,7 @@ interface ModalConfig {
     isOpen: true,
     config: {
         id: undefined,
-        type: 'confirm',
+        type: undefined,
         option: undefined,
         action: undefined,
         title: undefined,
