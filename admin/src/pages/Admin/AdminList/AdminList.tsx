@@ -39,6 +39,18 @@ const AdminList: React.FC<AdminListProps> = ({ showCreateModal = false }) => {
                     name: "lastName",
                     type: "text",
                     placeholder: "Last Name"
+                },
+                {
+                    col: 'w-full',
+                    name: "password",
+                    type: "password",
+                    placeholder: "Password"
+                },
+                {
+                    col: 'w-full',
+                    name: "confirmPassword",
+                    type: "password",
+                    placeholder: "Confirm Password"
                 }
             ],// @ts-ignore
             onAction: (...args) => createAdmin(...args)

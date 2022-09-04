@@ -6,12 +6,11 @@ function ModalSave({config}:any) {
     const modalContext = useModal()//@ts-ignore
     const modalData = modalContext.data;
 
-    const { id, type, title, description, onAction, option } = config;
-
+    const { onAction, option } = config;
 
     function handleAction(e:any) {
         e.preventDefault()//@ts-ignore
-        onAction(modalContext.formState) //@ts-ignore
+        onAction(modalContext.formState.values) //@ts-ignore
         modalContext.close()
     }
 

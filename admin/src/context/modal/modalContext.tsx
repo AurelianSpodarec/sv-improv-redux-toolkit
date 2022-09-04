@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useState } from "react";
+import useForm from "./../../../src/hooks/useForm";
 
 export const ModalContext = createContext(undefined);
 
@@ -18,14 +19,8 @@ interface ModalConfig {
 
 function ModalProvider({children}:any) {
 
-    
-    const [formState, setFormState] = useState({
-        email: "2323sdfsbeew2323233ewewb@gmail.com",
-            firstName: "p2322323333233ooooooooopoo",
-            lastName: "wowewe",
-            password: "qweqweqwe",
-            confirmPassword: "qweqweqwe"
-    })
+    // @ts-ignore
+    const formState = useForm()
     const [isOpen, setIsOpen] = useState(false);
     const [config, setConfig] = useState(
         {
@@ -40,10 +35,6 @@ function ModalProvider({children}:any) {
         }
     );
 
-    function createFormState() {
-
-    }
-
     function setModalOpen() {
         setIsOpen(true)
     }
@@ -52,8 +43,8 @@ function ModalProvider({children}:any) {
         setIsOpen(false)
     }
 
-    function onValueChange() {
-
+    function onValueChange(e:any) {
+        formState.handleChange(e)
     }
     
     const readValues = {
