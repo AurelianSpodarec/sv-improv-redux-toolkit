@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { getDarkMode } from '../redux/selectors/darkMode';
+// import { getDarkMode } from '../redux/selectors/darkMode';
 import { toggleTheme } from '../redux/actions/darkMode';
 
 import useLocalStorage from './useLocalStorage';
@@ -11,7 +11,7 @@ const useDarkMode = () => {
     const dispatch = useDispatch();
     const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)');
 
-    const darkMode = useSelector(getDarkMode);
+    // const darkMode = useSelector(getDarkMode);
 
     const [darkModeEnabled, setDarkModeEnabled] = useLocalStorage('darkMode', null);
 
@@ -38,7 +38,7 @@ const useDarkMode = () => {
         dispatch(toggleTheme(!darkModeEnabled));
     };
 
-    return [darkMode, handleSetDarkMode];
+    // return [darkMode, handleSetDarkMode];
 };
 
 export default useDarkMode;

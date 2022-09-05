@@ -1,6 +1,5 @@
 // button
 .button {
-    @include mainFont();
     color: var( --typography-button-primary);
     background-color: var( --background-button-primary);
 

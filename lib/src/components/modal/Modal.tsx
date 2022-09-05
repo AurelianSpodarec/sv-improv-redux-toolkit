@@ -1,7 +1,6 @@
 import { createPortal } from 'react-dom';
 
 import { useState, useEffect } from 'react';
-import Title from '../typography/Title';
 import useDarkMode from '../../hooks/useDarkMode';
 
 // size options are: large, medium, small
@@ -12,7 +11,7 @@ const Modal: React.FC<ModalProps> = ({
     title,
 }) => {
     const [hidden, updateHidden] = useState(true);
-    const [darkMode] = useDarkMode();
+    // const [darkMode] = useDarkMode();
 
     useEffect(() => {
         document.body.style.overflow = 'hidden';
@@ -32,13 +31,13 @@ const Modal: React.FC<ModalProps> = ({
     return createPortal(
         <div
             className={`modal-overlay ${className}`}
-            data-theme={darkMode ? 'dark' : 'light'}
+            // data-theme={darkMode ? 'dark' : 'light'}
         >
             <div
                 className={`modal-body custom-scroll ${size} ${className}`}
                 style={style}
             >
-                {!!title && <Title>{title}</Title>}
+                {!!title && <h2>{h2}</h2>}
                 {children}
             </div>
         </div>,

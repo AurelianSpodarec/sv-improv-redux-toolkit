@@ -24,7 +24,7 @@ export default function useTable<T>({ columns = [], rows = [], pageSizes = [] }:
 
     const sortedRows = useMemo(() => {
         if (!sortColumn) return rows;
-        if (sortAsc) return [...filteredRows].sort(sortColumn.getSort);
+        if (sortAsc) return [...filteredRows].sort(sortColumn.getSort).reverse();
         return [...filteredRows].sort((a, b) => {
             if (!sortColumn.getSort) {
                 return 0;

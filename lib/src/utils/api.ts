@@ -7,7 +7,7 @@ import { setRedirectUrl } from '../redux/actions/redirects';
 import { APIError } from '../types/APIError';
 import { clearJwtAndRefreshToken } from './jwt';
 
-let API_URL = '';
+let API_URL = 'https://improveasy-admin-api.madeatsilverchip.com/';
 export const initApi = (apiUrl: string) => {
     API_URL = apiUrl;
 };
@@ -78,22 +78,20 @@ const getToken = async () => {
     const jwt = localStorage.getItem('jwt');
     const refreshToken = localStorage.getItem('refreshToken');
 
-    if (!jwt || !refreshToken) {
-        return jwt;
-    }
-
+    if (!jwt || !refreshToken) return jwt;
+    
     const now = new Date().getTime() / 1000;
     const { exp = 0 } = jwtDecode<JwtPayload>(jwt);
     const minutesUntilExpiration = (exp - now) / 60;
 
-    if (minutesUntilExpiration > 2){
-        return jwt;
-    }
+
+    if (minutesUntilExpiration > 2) return jwt;
 
     const { data } = await axios.post<RefreshTokenRequest, AxiosResponse<LoginResponse>>(
         `${API_URL}/auth/refresh-token`, { refreshToken, expiredToken: jwt },
     );
 
+    
     localStorage.setItem('jwt', data.token);
     localStorage.setItem('refreshToken', data.refreshToken);
 

@@ -36,7 +36,7 @@ const Table = <TColumn, TRow extends { key?: number; id: number }>({
     return (
         <>
             {canSearch && !isEmpty && <TableSearch value={searchTerm} onChange={setSearchTerm} />}
-            <table>
+            <table className="text-gray-200">
                 <thead>
                     <tr>{columns.map(renderHeading)}</tr>
                 </thead>
