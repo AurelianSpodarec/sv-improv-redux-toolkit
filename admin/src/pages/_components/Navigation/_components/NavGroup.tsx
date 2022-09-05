@@ -12,4 +12,4 @@ interface NavGroupProps {
     text: string;
 }
 
-export default NavGroup;
+export default NavGroup

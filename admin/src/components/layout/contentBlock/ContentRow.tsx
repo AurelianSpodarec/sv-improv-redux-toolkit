@@ -1,5 +1,5 @@
 const ContentRow: React.FC<ContentRowProps> = ({ children }) => (
-    <div className="content-row">{children}</div>
+    <div className="flex last:mb-0">{children}</div>
 );
 
 interface ContentRowProps {

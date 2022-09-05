@@ -1,4 +1,3 @@
-import Title from 'lib/src/components/typography/Title';
 import React, { useCallback, useState } from 'react';
 import Form from 'lib/src/components/form/Form';
 import FormRow from 'lib/src/components/form/FormRow';
@@ -11,6 +10,7 @@ import Checkbox from 'lib/src/components/form/Checkbox';
 import DatePicker from 'lib/src/components/form/DatePicker';
 import useForm from 'lib/src/hooks/useForm';
 import ActionButton from 'lib/src/components/button/ActionButton';
+import Container from '@components/Container';
 
 const options = [
     { label: 'option 1', value: 1 },
@@ -19,7 +19,8 @@ const options = [
     { label: 'option 4', value: 4 },
     { label: 'option 5', value: 5 },
 ];
-const Home: React.FC = () => {
+
+function Home() {
     const [testError, setTestError] = useState(false);
 
     const [{ text, textArea, select, multiSelect, radio, checkbox, date }, handleChange] = useForm({
@@ -36,13 +37,10 @@ const Home: React.FC = () => {
         if (!text) return 'Please fill in text.';
     }, [text]);
 
-    if (testError) {
-        throw new Error('Test error');
-    }
-
+    if (testError) throw new Error('Test error');
     return (
-        <>
-            <Title>Welcome to Oak!</Title>
+        <Container>
+            Welcome to Oak!
             {/* <Form onSubmit={() => console.log('submit')} onCancel={() => console.log('cancel')}>
                 <FormRow>
                     <TextInput
@@ -111,8 +109,8 @@ const Home: React.FC = () => {
                     Explode
                 </ActionButton>
             {/* </Form> */}
-        </>
-    );
-};
+        </Container>
+    )
+}
 
 export default Home;

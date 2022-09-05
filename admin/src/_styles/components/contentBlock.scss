@@ -8,16 +8,6 @@
     }
 }
 
-.content-row {
-    display: flex;
-
-    &:last-child {
-        .content-item {
-            margin-bottom: 0;
-        }
-    }
-}
-
 .content-item {
     flex: 1;
     margin: 0 15px 20px;

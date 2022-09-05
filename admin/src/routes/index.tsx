@@ -2,22 +2,22 @@ import { Routes, Route } from 'react-router-dom';
 import ProtectedRoute from './ProtectedRoute';
 
 // General
-import Layout from '@pages/Layout';
-import NotFound from '@pages/NotFound/NotFound';
+import Layout from './../pages/Layout';
+import NotFound from './../pages/NotFound/NotFound';
 
 // Other
-import Home from '@pages/Home/Home'; 
+import Home from './../pages/Home/Home'; 
 
-import PropertyList from '@pages/Property/PropertyList';
-import PropertyView from '@pages/Property/PropertyView';
+import PropertyList from './../pages/Property/PropertyList';
+import PropertyView from './../pages/Property/PropertyView';
 
-import AdminList from '@pages/Admin/AdminList/AdminList';
-import AdminView from '@pages/Admin/AdminView/AdminView';
+import AdminList from './../pages/Admin/AdminList/AdminList';
+import AdminView from './../pages/Admin/AdminView/AdminView';
 
-import UserList from '@pages/User/UserList';
-import UserView from '@pages/User/UserView';
+import UserList from './../pages/User/UserList';
+import UserView from './../pages/User/UserView';
 
-import LoginView from '@pages/Auth/Login/LoginView';
+import LoginView from './../pages/Auth/Login/LoginView';
 
 
 

@@ -10,7 +10,6 @@ import ButtonRow from 'lib/src/components/button/ButtonRow';
 import Form from 'lib/src/components/form/Form';
 import FormRow from 'lib/src/components/form/FormRow';
 import TextInput from 'lib/src/components/form/TextInput';
-import Title from 'lib/src/components/typography/Title';
 import { CustomValidateFunction } from 'lib/src/types/shared/formValidation';
 
 
@@ -39,7 +38,7 @@ function LoginView() {
         <div className="login-form-wrapper">
             <div className="login-form">
                 <Link to="/admins">šsdsdsds</Link>
-                <Title>Login</Title>
+                Login
                 <form onSubmit={(e) => handleSubmit(e)}>
 
                 {/* <input 

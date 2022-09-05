@@ -6,6 +6,7 @@ import LinkButton from 'lib/src/components/button/LinkButton';
 
 import { useGetAdminListQuery, useCreateAdminMutation } from '../../../store/features/admin/adminApiSlice'; 
 import useModal from '../../../../src/context/modal/useModal';
+import Container from '@components/Container';
 
 
 function AdminList() {
@@ -60,15 +61,17 @@ function AdminList() {
     if(isLoading) return <>Loading</>
     if(error) return <>Most likely Not authorized</>
     return (
-        <>
+        <Container>
             <CreateHeader title="Admins">
                 <button type="button" onClick={(e) => handlerCreateAdmin(e)}>
                     Create Admin
                 </button>
             </CreateHeader>
 
+            <div className="text-gray-200 bg-[#1f2937] border border-solid py-14 rounded-xl border-[#374151]">
             <AdminUsersTable adminUsers={data} isFetching={isLoading} />
-        </>
+            </div>
+        </Container>
     );
 }
 

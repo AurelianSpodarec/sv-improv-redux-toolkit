@@ -7,12 +7,13 @@ import ContentItem from '@components/layout/contentBlock/ContentItem';
 import ContentRow from '@components/layout/contentBlock/ContentRow';
 import LinkButton from 'lib/src/components/button/LinkButton';
 import ButtonRow from 'lib/src/components/button/ButtonRow';
-import Title from 'lib/src/components/typography/Title';
+
 import { AdminUser } from 'src/types/shared/AdminUser';
 
 import { useDeleteAdminMutation, useGetAdminViewQuery } from '../../../store/features/admin/adminApiSlice';
 
 import useModal from './../../../../src/context/modal/useModal';
+import Container from '@components/Container';
 
 function AdminView() {
     const { id } = useParams();
@@ -38,10 +39,10 @@ function AdminView() {
     }
 
     return (
-        <>
-            <Title>
+        <Container>
+          
                 Admin - {data.firstName} {data.lastName}
-            </Title>
+             
 
             <ContentBlock>
                 <ContentRow>
@@ -70,7 +71,7 @@ function AdminView() {
                     Delete
                 </LinkButton> */}
             </ButtonRow>
-        </>
+        </Container>
     )
 }
 

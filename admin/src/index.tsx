@@ -6,7 +6,7 @@ import { Provider } from 'react-redux';
 import { persistor, store } from './store/store'
 import { PersistGate } from 'redux-persist/integration/react'
 
-import App from './App';
+import App from './pages/App';
 import config from './config';
 
 // import { Provider } from 'react-redux'
@@ -23,7 +23,7 @@ initApi(API_URL);
 
 const root = ReactDOM.createRoot(
     document.getElementById('root') as HTMLElement
-);
+)
 
 
 root.render(
@@ -47,4 +47,4 @@ root.render(
     
     </ErrorBoundary>
     </React.StrictMode>
-);
+)

@@ -23,4 +23,4 @@ interface NavItemProps {
     onClick?: (event: React.MouseEvent) => void;
 }
 
-export default NavItem;
+export default NavItem

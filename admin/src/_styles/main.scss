@@ -1,6 +1,10 @@
 // ==========================================================================
 // # Main - Order in this file matters
 // ==========================================================================
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 
 @import 'variables.scss';
 
@@ -10,7 +14,6 @@
 @import 'components/button.scss';
 @import 'components/contentBlock.scss';
 @import 'components/form.scss';
-@import 'components/header.scss';
 
 // Modals
 @import 'components/modal/modal.scss';
@@ -18,9 +21,7 @@
 @import 'components/modal/modal-save.scss';
 
 
-@import 'components/nav.scss';
 @import 'components/table.scss';
-@import 'components/typography.scss';
 
 // ==========================================================================
 // Hotfix - cheat
