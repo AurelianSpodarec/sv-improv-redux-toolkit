@@ -1,7 +1,20 @@
+import Link from "next/link";
+
 function Home() {
     return (
         <div>
-            hi
+             home
+            <section id="hero">
+
+            </section>
+
+            <section id="services">
+
+            </section>
+
+            <section id="cta">
+                
+            </section>
         </div>
     )
 }

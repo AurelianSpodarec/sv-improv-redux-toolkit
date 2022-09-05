@@ -9,9 +9,7 @@ module.exports = function (config, env) {
             addDecoratorsLegacy(),
             addWebpackAlias({
                 '@components': path.resolve(__dirname, 'src/components'),
-                '@content': path.resolve(__dirname, 'src/_content'),
-            }),
-            babelInclude([path.resolve('src'), fs.realpathSync('node_modules/lib/src')]),
+            })
         )(config, env),
     );
 };

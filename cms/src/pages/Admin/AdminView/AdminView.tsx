@@ -1,6 +1,5 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import { AdminUser } from 'src/types/shared/AdminUser';
 
 import { useDeleteAdminMutation, useGetAdminViewQuery } from '../../../store/features/admin/adminApiSlice';
 
@@ -44,10 +43,6 @@ function AdminView() {
                    
         </Container>
     )
-}
-
-interface AdminViewProps {
-    user: AdminUser | undefined;
 }
 
 export default AdminView
