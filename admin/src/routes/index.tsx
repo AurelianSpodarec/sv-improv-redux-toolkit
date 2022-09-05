@@ -14,7 +14,7 @@ import PropertyView from './../pages/Property/PropertyView';
 import AdminList from './../pages/Admin/AdminList/AdminList';
 import AdminView from './../pages/Admin/AdminView/AdminView';
 
-import UserList from './../pages/User/UserList';
+import UserList from '../pages/User/UserList/UserList';
 import UserView from './../pages/User/UserView';
 
 import LoginView from './../pages/Auth/Login/LoginView';
@@ -31,7 +31,7 @@ const CustomRoutes: React.FC = () => (
             <Route path="/" element={<Home />}/>
 
             <Route path="admins" element={<AdminList />} />
-            <Route path="admin/:id" element={<AdminView />} />
+            <Route path="admins/:id" element={<AdminView />} />
 
             <Route path="users" element={<UserList />} />
             <Route path="users/:id" element={<UserView />} />

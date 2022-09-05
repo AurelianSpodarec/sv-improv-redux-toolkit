@@ -1,12 +1,14 @@
 import react, { useState } from 'react';
 
-import AdminUsersTable from './components/AdminUsersTable';
-import CreateHeader from '@components/layout/createHeader/CreateHeader';
-import LinkButton from 'lib/src/components/button/LinkButton';
-
-import { useGetAdminListQuery, useCreateAdminMutation } from '../../../store/features/admin/adminApiSlice'; 
 import useModal from '../../../../src/context/modal/useModal';
-import Container from '@components/Container';
+import { useGetAdminListQuery, useCreateAdminMutation } from '../../../store/features/admin/adminApiSlice'; 
+
+
+import { 
+    Container, 
+    Header, 
+    Main
+} from './../../../components';
 
 
 function AdminList() {
@@ -62,15 +64,17 @@ function AdminList() {
     if(error) return <>Most likely Not authorized</>
     return (
         <Container>
-            <CreateHeader title="Admins">
-                <button type="button" onClick={(e) => handlerCreateAdmin(e)}>
+
+            <Header>
+                <button className="text-white" type="button" onClick={(e) => handlerCreateAdmin(e)}>
                     Create Admin
                 </button>
-            </CreateHeader>
+            </Header>
 
-            <div className="text-gray-200 bg-[#1f2937] border border-solid py-14 rounded-xl border-[#374151]">
-            <AdminUsersTable adminUsers={data} isFetching={isLoading} />
-            </div>
+            <Main>
+               
+            </Main>
+    
         </Container>
     );
 }

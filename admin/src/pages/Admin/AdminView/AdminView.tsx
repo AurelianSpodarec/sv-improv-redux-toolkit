@@ -1,13 +1,5 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-
-import ContentBlock from '@components/layout/contentBlock/ContentBlock';
-import ContentItem from '@components/layout/contentBlock/ContentItem';
-import ContentRow from '@components/layout/contentBlock/ContentRow';
-import LinkButton from 'lib/src/components/button/LinkButton';
-import ButtonRow from 'lib/src/components/button/ButtonRow';
-
 import { AdminUser } from 'src/types/shared/AdminUser';
 
 import { useDeleteAdminMutation, useGetAdminViewQuery } from '../../../store/features/admin/adminApiSlice';
@@ -43,34 +35,13 @@ function AdminView() {
           
                 Admin - {data.firstName} {data.lastName}
              
-
-            <ContentBlock>
-                <ContentRow>
-                    <ContentItem label="Name">
+  
                         <p>{`${data.firstName} ${data.lastName}`}</p>
-                    </ContentItem>
-                    <ContentItem label="Email">
+                    
                         <p>
                             <a href={`mailto:${data.email}`}>{data.email}</a>
                         </p>
-                    </ContentItem>
-                </ContentRow>
-            </ContentBlock>
-
-            <ButtonRow alignment="left">
-                <button type="button" onClick={() => handleDelete()}>
-                    Delete
-                </button>
-                {/* <LinkButton source="secondary" href={`/admin/${id}/edit`}>
-                    Edit
-                </LinkButton>
-                <LinkButton source="secondary" href={`/admin/${id}/edit-password`}>
-                    Edit password
-                </LinkButton>
-                <LinkButton source="negative" href={`/admin/${id}/delete`}>
-                    Delete
-                </LinkButton> */}
-            </ButtonRow>
+                   
         </Container>
     )
 }

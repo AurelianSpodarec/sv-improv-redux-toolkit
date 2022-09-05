@@ -15,21 +15,22 @@ function ModalConfirm({config}:ModalConfirmProps) {
         modalContext.close()
     }
 
+    
     return (
-        <div className="modal-confirm">
-        <div className="modal-confirm__inner">
+        <div className="w-[340px] my-0 mx-auto text-center bg-[#1f2937] p-1 radius-md">
+        <div>
         
             {title && 
-            <header className="modal-confirm__header">
+            <header>
                 {option && option} <span style={{ fontWeight: "bold"}}>{title}</span>
             </header>        
             }
 
-            <section className="modal-confirm__section">
-                {description ? description : "Are you sure you would want to do this?" }
+            <section className="p-4">
+                <span className="text-white">{description ? description : "Are you sure you would want to do this?" }</span>
             </section>
 
-            <footer className="modal-confirm__footer">
+            <footer className="flex justify-between">
                 <button type="button" className="w-full" onClick={(e) => handleCancel(e)}>
                     Cancel
                 </button>

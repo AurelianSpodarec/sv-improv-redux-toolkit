@@ -20,7 +20,7 @@ function ModalSave({config}:any) {
     }
 
     return (
-        <div className="modal-save">
+        <div className="w-[900px] m-auto p-12 rounded-lg bg-[#1f2937]">
             <header className="modal-save__header">
 
             </header>
@@ -29,7 +29,7 @@ function ModalSave({config}:any) {
                 <ModalInputList data={modalData.inputs} />
             </section>
 
-            <footer className="modal-save__footer">
+            <footer className="flex justify-between">
                 <button type="button" className="w-full" onClick={(e) => handleCancel(e)}>
                     Cancel
                 </button>

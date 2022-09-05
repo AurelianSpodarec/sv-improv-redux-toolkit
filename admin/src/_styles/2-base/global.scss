@@ -1,12 +1,14 @@
 // ==========================================================================
-// # Modal
+// #Base: Global
 // ==========================================================================
 
-.modal {
+html,
+body {
+    @apply h-full
+}
 
-    &__inner {
-        margin: auto;
-        top: 50%;
-        transform: translateY(-50%);
-    }
+body {
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale; 
 }

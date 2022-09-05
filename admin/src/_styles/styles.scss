@@ -1,27 +1,24 @@
 // ==========================================================================
 // # Main - Order in this file matters
 // ==========================================================================
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
-
-@import 'variables.scss';
 
 // ==========================================================================
-// Components
+// 0-lib
 // ==========================================================================
-@import 'components/button.scss';
-@import 'components/contentBlock.scss';
-@import 'components/form.scss';
-
-// Modals
-@import 'components/modal/modal.scss';
-@import 'components/modal/modal-confirm.scss';
-@import 'components/modal/modal-save.scss';
+@import "0-vendor/tailwindcss";
 
 
-@import 'components/table.scss';
+// ==========================================================================
+// 1-helpers
+// ==========================================================================
+
+
+// ==========================================================================
+// 2-base
+// ==========================================================================
+@import "2-base/global";
+
 
 // ==========================================================================
 // Hotfix - cheat
