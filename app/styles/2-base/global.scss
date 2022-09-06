@@ -3,7 +3,8 @@
 // ==========================================================================
 
 html,
-body {
+body,
+#__next {
     @apply h-full
 }
 
@@ -11,4 +12,5 @@ body {
     margin: 0;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale; 
+    background-color: #f9fafe;
 }

@@ -1,7 +1,7 @@
 function Portal() {
     return (
         <div>
-            hi
+            hi portal
         </div>
     )
 }
