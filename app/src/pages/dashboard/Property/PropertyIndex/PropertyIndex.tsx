@@ -40,7 +40,7 @@ const propertyListing = [
         postcode: 'M50 3AF',
         epcCurrent: 'C',
         epcPotential: 'A',
-        mees: true,
+        mees: '',
         lastUpdated: '14/10/2022'
     }
 ]
@@ -85,16 +85,76 @@ function PropertyIndex() {
                     {/* <span className="text-2xl font-bold">{propertyListing.length} property istings</span> */}
                     <span className="text-2xl font-bold">My Properties</span>
 
-                    <div>
-                        <input placeholder="Search Properties" />
-                        <button type="button" className="relative inline-flex items-center rounded-md border border-transparent bg-green-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2">Create new job</button>
+                    <div className="flex space-x-4">
+                        <button type="button" className="relative flex-none inline-flex items-center rounded-md border border-transparent bg-green-600 px-4 py-2 text-md font-medium text-white shadow-sm hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2">Create new property</button>
                     </div>
                 </div>
 
-                <div className="flex">
-                    Sort by City
-                    Filter 1
-                    Filter 2
+                <div className="flex mb-8 justify-between">
+                <input type="email" name="email-address" id="email-address" className="w-full min-w-0 appearance-none rounded-md border border-transparent bg-white py-2 px-4 text-base text-gray-900 placeholder-gray-500 focus:border-white focus:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800 sm:max-w-xs" placeholder="Search Properties"/>
+                <div className="flex space-x-6 ">
+
+                        
+ 
+                <div>
+                    <select
+                        id="location"
+                        name="location"
+                        className="mt-1 block w-full rounded-md border-gray-300 py-2 pl-3 pr-10 text-base focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-md"
+                        defaultValue="London"
+                    >
+                        <option>Manchester</option>
+                        <option>Newcastle</option>
+                        <option>Leicester</option>
+                    </select>
+                </div>
+
+
+                <div>
+      
+      <select
+        id="location"
+        name="location"
+        placeholder="Current EPC"
+        className="mt-1 block w-full rounded-md border-gray-300 py-2 pl-3 pr-10 text-base focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-md"
+        // defaultValue="EPC A"
+      >
+        <option>Current EPC: C</option>
+        <option>A</option>
+        <option>B</option>
+        <option>C</option>
+        <option>D</option>
+        <option>E</option>
+      </select>
+    </div>
+    <div>
+      
+      <select
+        id="location"
+        name="location"
+        placeholder="Current EPC"
+        className="mt-1 block w-full rounded-md border-gray-300 py-2 pl-3 pr-10 text-base focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-md"
+        // defaultValue="EPC A"
+      >
+        <option>Potential EPC: A</option>
+       <option>A</option>
+        <option>B</option>
+        <option>C</option>
+        <option>D</option>
+        <option>E</option>
+      </select>
+    </div>
+ 
+ 
+
+
+
+
+
+
+</div>
+
+
                 </div>
 
 
@@ -180,10 +240,35 @@ function PropertyIndex() {
                     <td className="whitespace-nowrap px-3 py-4 text-md text-gray-500">{section.postcode}</td>
                     <td className="whitespace-nowrap px-3 py-4 text-md text-gray-500">{section.epcCurrent}</td>
                     <td className="whitespace-nowrap px-3 py-4 text-md text-gray-500">{section.epcPotential}</td>
-                    <td className="whitespace-nowrap px-3 py-4 text-md text-gray-500">
-                        <span className="inline-flex rounded-full bg-green-100 px-2 text-xs font-semibold leading-5 text-green-800">
-                          Active
-                        </span>
+                    <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+
+                        {section.mees === "" ? 
+                            <span className="inline-flex items-center justify-center h-6 w-6 rounded-full bg-gray-100 px-2 text-xs font-semibold leading-5 text-gray-800">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                                    <path strokeLinecap="round" strokeLinejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9 5.25h.008v.008H12v-.008z" />
+                                </svg>
+                            </span>
+                        :
+
+                            section.mees ? 
+                                
+                                <span className="inline-flex items-center justify-center h-6 w-6 rounded-full bg-green-100 px-2 text-xs font-semibold leading-5 text-green-800">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4">
+                                        <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                                    </svg>
+
+                                </span>
+                                :
+                                <span className="inline-flex items-center justify-center h-6 w-6 rounded-full bg-red-100 px-2 text-xs font-semibold leading-5 text-red-800">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4">
+                                    <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                                </svg>
+
+                            </span>
+                            
+                        }
+
+
                     </td>
                     <td className="whitespace-nowrap px-3 py-4 text-md text-gray-500">{section.lastUpdated}</td>
 

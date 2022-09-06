@@ -42,32 +42,32 @@ const tabs = [
         firstName: 'Emma',
         lastName: 'Smith',
         email: 'emma@hotmail.com',
-        mobile: '075792384',
+        mobile: '075792344',
+        moveIn: '19/10/2022'
+    },
+    {
+        id: 1,
+        firstName: 'Luigi',
+        lastName: 'Berek',
+        email: 'berek@gmail.com',
+        mobile: '075342384',
         moveIn: '14/10/2022'
     },
     {
         id: 1,
-        firstName: 'Emma',
-        lastName: 'Smith',
-        email: 'emma@hotmail.com',
+        firstName: 'Mario',
+        lastName: 'Frisiano',
+        email: 'emma@gmail.com',
         mobile: '075792384',
-        moveIn: '14/10/2022'
+        moveIn: '06/10/2022'
     },
     {
         id: 1,
-        firstName: 'Emma',
-        lastName: 'Smith',
-        email: 'emma@hotmail.com',
+        firstName: 'Tom',
+        lastName: 'Cook',
+        email: 'cook@hotmail.com',
         mobile: '075792384',
-        moveIn: '14/10/2022'
-    },
-    {
-        id: 1,
-        firstName: 'Emma',
-        lastName: 'Smith',
-        email: 'emma@hotmail.com',
-        mobile: '075792384',
-        moveIn: '14/10/2022'
+        moveIn: '06/10/2022'
     },
 ]
 
@@ -77,7 +77,7 @@ function classNames(...classes:any) {
 
 function PropertyView() {
 
-    const [currentTab, setCurrentTab] = useState('home');
+    const [currentTab, setCurrentTab] = useState('settings');
 
     const checkbox = useRef()
     const [checked, setChecked] = useState(false)
@@ -399,7 +399,12 @@ function PropertyView() {
                     currentTab === 'epcRating' &&
 
                     <div>
-                        
+                        <header>
+                            Your EPC Rating: 93
+                            Potential EPC: Rating: 98
+                        </header>
+
+
                     </div>
                 }
 
